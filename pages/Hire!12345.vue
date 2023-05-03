@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'Hire'
+    name: 'Hire me!'
 }
 </script>
 
