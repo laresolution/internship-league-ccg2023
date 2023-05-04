@@ -1,4 +1,5 @@
 # internship-league-ccg2023
+This is going to be an awesome project
 
 ## Build Setup
 
