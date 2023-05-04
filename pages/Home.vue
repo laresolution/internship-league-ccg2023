@@ -1,5 +1,9 @@
 <template>
-    <div></div>
+    <div>
+        <p>Logo</p>
+        <h1>Titre</h1>
+        <img alt="Banner">
+    </div>
 </template>
 
 <script>
