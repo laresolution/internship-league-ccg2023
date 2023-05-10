@@ -1,11 +1,12 @@
 <template>
     <div>
-        <router-link to="Contact">Contact</router-link>
         {{ currentUser.id }}
         <AddButton @click="addRandomUser"></AddButton>
         <ul>
-            <li v-for="user in users" :key="user.id">
-                {{user.name}}
+            <li v-for="user in users" :key="user.id" >
+                <router-link :to="`/users/${user.id}`">
+                    {{user.name}}
+                </router-link>
             </li>
         </ul>
     </div>
@@ -16,9 +17,8 @@ import { mapGetters, mapActions } from 'vuex'
 import AddButton from '~/components/buttons/AddButton.vue';
 
 export default {
-    name: "ExampleForm",
+    name: "Users",
     components: { AddButton },
-    layout: "newlayout",
     data() {
         return {
             isFormShown: false,
