@@ -1,14 +1,17 @@
 <template>
-   <ZohrehForm>
-
-   </ZohrehForm>
+    <div>
+        <ZohrehForm>
+            
+        </ZohrehForm>
+    </div>
 </template>
 
 <script>
-
 import ZohrehForm from '~/components/form/zohrehForm.vue';
+
+
 export default {
-    name: "Contact",
+    name: "Zohreh",
     components: { ZohrehForm }
 }
 </script>
