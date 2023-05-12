@@ -3,7 +3,7 @@
         <TRform @newMember ="affiche">
 
         </TRform>
-        <v-card class="mx-auto" max-width="344" outlined>
+        <v-card class="mx-auto backColor" max-width="344" outlined>
             <v-list-item three-line>
                 <v-list-item-content>
                     <div class="text-overline mb-4">
@@ -15,7 +15,7 @@
                     <v-list-item-subtitle>{{likes}}</v-list-item-subtitle>
                 </v-list-item-content>
 
-                <v-list-item-avatar tile size="80" color="blue"></v-list-item-avatar>
+                <v-list-item-avatar tile size="80" color="couleur"></v-list-item-avatar>
             </v-list-item>
 
             <!-- <v-card-actions>
@@ -26,8 +26,8 @@
         >
           Button
         </v-btn>
-      </v-card-actions> -->
-        </v-card>
+      </v-card-actions>-->
+        </v-card> 
     </div>
 </template>
 
@@ -38,10 +38,11 @@ export default {
     components: { TRform },
     data() {
         return {
-            salutation: 'HELLO',
+           
             fullName: '',
             profession: '',
-            likes: ''
+            likes: '',
+            couleur:''
 
         }
     },
@@ -50,12 +51,32 @@ export default {
             this.fullName = données.fullName;
             this.profession = données.profession;
             this.likes = données.likes;
+            this.couleur=données.color;
             console.log(données);
 
+        }
+    },
+    computed: {
+        classBindingObject () {
+            return {
+                pink: this.couleur === "Pink",
+                blue: this.couleur === "Blue"
+                
+            }
         }
     }
 
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.backColor{
+    background-color: red;
+}
+.blue {
+   background-color: blue; 
+}
+
+.pink {
+   background-color: pink; 
+}</style>
