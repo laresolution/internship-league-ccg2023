@@ -1,12 +1,12 @@
 <template>
      <div>
-    <v-text-field v-model="fullName"
+    <v-text-field v-model="newUser.fullName"
       label="Your first and last name"
       :rules="rules"
       hide-details="auto"
     ></v-text-field>
-    <v-text-field v-model="profession" label="Your profession"></v-text-field>
-    <v-text-field v-model="likes" label="Your likes"></v-text-field>
+    <v-text-field v-model="newUser.profession" label="Your profession"></v-text-field>
+    <v-text-field v-model="newUser.likes" label="Your likes"></v-text-field>
     <v-btn
         class="mx-2"
         fab
@@ -21,6 +21,13 @@
 </template>
 
 <script>
+const generateNewMember = ()=>{
+  return {
+    fullName:'',
+      profession:'',
+      likes:''
+  }
+}
   export default {
     name: 'TRform',
     data: () => ({
@@ -29,14 +36,12 @@
         value => !!value || 'Required.',
         value => (value && value.length >= 3) || 'Min 3 characters',
       ],
-      fullName:'',
-      profession:'',
-      likes:'',
+     newUser: generateNewMember()      
     }),
     methods: {
         clicked() {
-            this.$emit('newMember', this.fullName,this.profession,this.likes);
-            console.log(this.fullName);
+            this.$emit('newMember', this.newUser);
+            console.log(this.newUser);
         }
     }
   }

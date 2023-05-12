@@ -1,6 +1,6 @@
 <template>
     <div>
-        <TRform @click ="affiche($event)">
+        <TRform @newMember ="affiche">
 
         </TRform>
         <v-card class="mx-auto" max-width="344" outlined>
@@ -47,10 +47,10 @@ export default {
     },
     methods: {
         affiche(données) {
-            this.fullName = données;
-            this.profession=Array[1];
-            this.likes=Array[2];
-            console.log('OK!!!' + Array[0]);
+            this.fullName = données.fullName;
+            this.profession = données.profession;
+            this.likes = données.likes;
+            console.log(données);
 
         }
     }
