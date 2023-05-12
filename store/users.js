@@ -1,62 +1,88 @@
-import Vue from 'vue'
+import { set } from 'vue';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCb54FM0ibSDP40a47K-VtUsroV5ri7bGE",
+    authDomain: "internship-league.firebaseapp.com",
+    projectId: "internship-league",
+    storageBucket: "internship-league.appspot.com",
+    messagingSenderId: "119738330715",
+    appId: "1:119738330715:web:7338ebe71884d60944d97e",
+    measurementId: "G-WET57SG6NX"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+const users = collection(db, "users");
 
 // state = private properties
 // mutations = private methods
 
 const state = () => ({
-    users: {
-    1: {
-        name: 'Alex Vinet',
-        id: 1,
-        favoriteColor: 'blue'
-    },
-    2: {
-        name: 'John Doe',
-        id: 2,
-        favoriteColor: 'red'
-    },
-    3: {
-        name: 'Jane Doe',
-        id: 3,
-        favoriteColor: 'green'
-    }},
+    users: {},
     currentUserId: 1
 })
 
 const mutations = {
-    USER_ADDING(state, { name, id, favoriteColor }) {
+    USER_ADDING(state, tempUser) {
+        const id = tempUser.id;
         console.log(`user ${id} adding`)
-        Vue.set(state.users, id, { name, id, favoriteColor, loading: true })
+        set(state.users, id, { ...tempUser, loading: true })
     },
     USER_ADDED(state, userFromDatabase) {
-        console.log(`user ${userFromDatabase.id} added`)
-        // state.users[userFromDatabase.id] = Object.assign({}, state.users[userFromDatabase.id], userFromDatabase)
+        const id = userFromDatabase.id;
+        if (state.users[id]) {
+            state.users[id].loading = false;
+        }
+        console.log(`user ${id} added`)
     },
     USER_ADD_FAILED(state, user) {
-        console.log(`user ${user.id} failed`)
-        // delete state.users[user.id]
-    }
+        const id = user.id;
+        console.log(`user ${id} failed`)
+        delete state.users[id]
+    },
+    USER_LOADED(state, user) {
+        const id = user.id;
+        console.log(`user ${id} adding`)
+        set(state.users, id, user)
+    },
 }
 
 // Actions = public methods
 // Getters = public properties
 
 const actions = {
-    addUser({ commit }, user) {
+    async loadUsers({ commit }) {
+        const querySnapshot = await getDocs(users);
+        querySnapshot.forEach((doc) => {
+          const user = { ...doc.data(), id: doc.id}
+          commit('USER_LOADED', user)
+        });
+    },
+    async addUser({ commit }, user) {
         commit('USER_ADDING', user)
         // perform call to database and wait for results
-        // on success... backend returns newly created user with all augmentations
-        const databaseUser = user; // should come from backend success instead
-        commit('USER_ADDED', databaseUser)
-
-        // on error... we revert everything
-        commit('USER_ADD_FAILED', user)
+        try {
+            const docRef = await addDoc(collection(db, "users"), user);
+            // on success... backend returns newly created user with all augmentations
+            commit('USER_ADDED', user.id)
+            console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+            // // on error... we revert everything
+            commit('USER_ADD_FAILED', user)
+            console.error("Error adding document: ", e);
+          }
     }
 }
 
 const getters = {
     users: state => state.users,
-    currentUser: state => state.users[state.currentUserId]
+    currentUser: state => state.users[state.currentUserId] || {}
 }
 
 export default {
