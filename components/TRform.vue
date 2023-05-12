@@ -31,11 +31,12 @@
       ],
       fullName:'',
       profession:'',
-      likes:''
+      likes:'',
     }),
     methods: {
         clicked() {
             this.$emit('newMember', this.fullName,this.profession,this.likes);
+            console.log(this.fullName);
         }
     }
   }

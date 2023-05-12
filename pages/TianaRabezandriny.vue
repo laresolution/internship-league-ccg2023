@@ -1,18 +1,18 @@
 <template>
     <div>
-        <TRform v-on:newMember="affiche($event)">
+        <TRform @click ="affiche($event)">
 
         </TRform>
         <v-card class="mx-auto" max-width="344" outlined>
             <v-list-item three-line>
                 <v-list-item-content>
                     <div class="text-overline mb-4">
-                        OVERLINE
+                        {{fullName}}
                     </div>
                     <v-list-item-title class="text-h5 mb-1">
-                        {{ salutation }}
+                        {{profession}}
                     </v-list-item-title>
-                    <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{likes}}</v-list-item-subtitle>
                 </v-list-item-content>
 
                 <v-list-item-avatar tile size="80" color="blue"></v-list-item-avatar>
@@ -35,22 +35,27 @@
 import TRform from '~/components/TRform.vue';
 export default {
     name: 'TianaRabezandriny',
-    components:{TRform},
+    components: { TRform },
     data() {
-        return { salutation: 'HELLO',
-        fullName:'',
-      profession:'',
-      likes:''
-     
+        return {
+            salutation: 'HELLO',
+            fullName: '',
+            profession: '',
+            likes: ''
+
+        }
     },
     methods: {
-        affiche:function(données){
-            this.fullName= données.fullName;
+        affiche(données) {
+            this.fullName = données;
+            this.profession=Array[1];
+            this.likes=Array[2];
+            console.log('OK!!!' + Array[0]);
 
-        } 
+        }
     }
 
-}}
+}
 </script>
 
 <style scoped></style>
