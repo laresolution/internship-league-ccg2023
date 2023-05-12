@@ -64,6 +64,8 @@ export default {
     name: 'CardVue',
     data () {
         return {
+            loading: false,
+            selection: 1,
             isHovering: false
         }
     },
@@ -71,6 +73,12 @@ export default {
         elevation () {
             return this.isHovering ? 12 : 4;
         }
+    },
+    methods: {
+        reserve () {
+            this.loading = true
+            setTimeout(() => (this.loading = false), 2000)
+        },
     }
 }
 </script>
