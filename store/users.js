@@ -19,30 +19,12 @@ const db = getFirestore(app);
 
 const users = collection(db, "users");
  
-/* import { collection, getDocs } from "firebase/firestore"; 
-
- */
+ 
 // state = private properties
 // mutations = private methods
 
 const state = () => ({
-    users: {
-        1:{
-            name:'Alex Vinet',
-            id: 1,
-            favorteColor:'blue'
-        },
-        2:{
-            name:'Philip',
-            id: 2,
-            favorteColor:'green'
-        },
-        3:{
-            name:'Michael',
-            id: 3,
-            favorteColor:'red'
-        } 
-    },
+    users: {},
     currentUserId: 1
 })
 
@@ -75,14 +57,16 @@ const mutations = {
 // Getters = public properties
 
 const actions = {
-/*     async loadUsers({ commit }){
+/*       async loadUsers({ commit }){//remote
         const querySnapshot = await getDocs(collection(db, "users"));
         querySnapshot.forEach((doc) => {
           console.log(`${doc.id} => ${doc.data()}`);
-          commit('USER_ADDED', doc.data())
+          const user = { ...doc.data(), id: doc.id}
+          commit('USER_LOADED', doc.data())
         });
-    }, */
-      async loadUsers({ commit }) {
+    },   */
+    
+    async loadUsers({ commit }) {
         const querySnapshot = await getDocs(users);
         querySnapshot.forEach((doc) => {
           const user = { ...doc.data(), id: doc.id}
