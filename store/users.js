@@ -1,5 +1,4 @@
-import { set } from 'vue';
-import { initializeApp } from "firebase/app";
+import { set } from 'vue'; 
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -19,12 +18,31 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const users = collection(db, "users");
+ 
+/* import { collection, getDocs } from "firebase/firestore"; 
 
+ */
 // state = private properties
 // mutations = private methods
 
 const state = () => ({
-    users: {},
+    users: {
+        1:{
+            name:'Alex Vinet',
+            id: 1,
+            favorteColor:'blue'
+        },
+        2:{
+            name:'Philip',
+            id: 2,
+            favorteColor:'green'
+        },
+        3:{
+            name:'Michael',
+            id: 3,
+            favorteColor:'red'
+        } 
+    },
     currentUserId: 1
 })
 
@@ -57,13 +75,20 @@ const mutations = {
 // Getters = public properties
 
 const actions = {
-    async loadUsers({ commit }) {
+/*     async loadUsers({ commit }){
+        const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+          console.log(`${doc.id} => ${doc.data()}`);
+          commit('USER_ADDED', doc.data())
+        });
+    }, */
+      async loadUsers({ commit }) {
         const querySnapshot = await getDocs(users);
         querySnapshot.forEach((doc) => {
           const user = { ...doc.data(), id: doc.id}
           commit('USER_LOADED', user)
         });
-    },
+    },  
     async addUser({ commit }, user) {
         commit('USER_ADDING', user)
         // perform call to database and wait for results

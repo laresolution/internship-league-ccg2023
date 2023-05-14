@@ -13,8 +13,10 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+
+import { mapGetters, mapActions } from 'vuex'; 
 import AddButton from '~/components/buttons/AddButton.vue';
+
 
 export default {
     name: "Users",
