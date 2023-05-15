@@ -31,7 +31,7 @@ const state = () => ({
 const mutations = {
     USER_ADDING(state, tempUser) {
         const id = tempUser.id;
-        console.log(`user ${id} adding`)
+        // console.log(`user ${id} adding`)
         set(state.users, id, { ...tempUser, loading: true })
     },
     USER_ADDED(state, userFromDatabase) {
@@ -39,16 +39,16 @@ const mutations = {
         if (state.users[id]) {
             state.users[id].loading = false;
         }
-        console.log(`user ${id} added`)
+        // console.log(`user ${id} added`)
     },
     USER_ADD_FAILED(state, user) {
         const id = user.id;
-        console.log(`user ${id} failed`)
+        // console.log(`user ${id} failed`)
         delete state.users[id]
     },
     USER_LOADED(state, user) {
         const id = user.id;
-        console.log(`user ${id} adding`)
+        //console.log(`user ${id} adding`)
         set(state.users, id, user)
     },
 }
@@ -80,11 +80,11 @@ const actions = {
             const docRef = await addDoc(collection(db, "users"), user);
             // on success... backend returns newly created user with all augmentations
             commit('USER_ADDED', user.id)
-            console.log("Document written with ID: ", docRef.id);
+            // console.log("Document written with ID: ", docRef.id);
           } catch (e) {
             // // on error... we revert everything
             commit('USER_ADD_FAILED', user)
-            console.error("Error adding document: ", e);
+            // console.error("Error adding document: ", e);
           }
     }
 }
