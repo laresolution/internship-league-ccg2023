@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { getAuth, signInWithPopup, GithubAuthProvider, GoogleAuthProvider, unlink } from "firebase/auth";
+import { getAuth, signInWithPopup, GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 export default {
     name: 'Login',
