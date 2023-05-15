@@ -8,9 +8,6 @@
                 <v-col cols="8" class="py-0">
                     <Nuxt />
                 </v-col>
-                <v-col class="py-0">
-                    <LeftMenu></LeftMenu>
-                </v-col>
             </v-row>
         </v-container>
     </v-app>
