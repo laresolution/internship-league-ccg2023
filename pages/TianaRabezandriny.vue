@@ -15,7 +15,7 @@
                     <v-list-item-subtitle>{{likes}}</v-list-item-subtitle>
                 </v-list-item-content>
 
-                <v-list-item-avatar tile size="80" color="couleur"></v-list-item-avatar>
+                <v-list-item-avatar tile size="80" :class="classBindingObject"></v-list-item-avatar>
             </v-list-item>
 
             <!-- <v-card-actions>
@@ -71,7 +71,7 @@ export default {
 
 <style scoped>
 .backColor{
-    background-color: red;
+    background-color: black;
 }
 .blue {
    background-color: blue; 
