@@ -28,7 +28,7 @@ export default {
                 green: this.color === "Green",
                 red: this.color === "Red",
                 blue: this.color === "Blue",
-                black: true
+                brown: true
             }
         }
     }
