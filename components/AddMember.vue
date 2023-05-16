@@ -5,16 +5,19 @@
                 <v-col>
                     <v-text-field label="Name" v-model="newMember.name" :rules="nameRules" :maxlength="60" required></v-text-field>
                     <v-text-field label="Email" v-model="newMember.email" :rules="emailRules" required></v-text-field>
+                    <v-text-field label="Phone" v-model="newMember.phone" :rules="phoneRules" required></v-text-field>
                     <v-text-field label="Student number" v-model="newMember.studentNumber" :maxlength="20" required></v-text-field>
                     <v-text-field label="Program number" v-model="newMember.programNumber" :maxlength="20" required></v-text-field>
                     <v-text-field label="Institution" v-model="newMember.institution" :maxlength="100"></v-text-field>
                     <v-text-field label="Supervisor name" v-model="newMember.supervisorName" :maxlength="60"></v-text-field>
-                     Internship start 
+                      
                     <v-row justify="space-around">
+                        <label for="date" class="input-group-text">Internship start</label><br><br>
                         <v-date-picker
                         v-model="picker" :min="new Date().toISOString().split('T')[0]" required
                         color="green lighten-1"
                         ></v-date-picker>
+                        <label for="date" class="input-group-text">Internship end</label><br><br>
                         <v-date-picker
                         v-model="picker2"
                         color="green lighten-1"
@@ -38,6 +41,7 @@ const generateNewMember = () => {
     return {
         name: '',
         email: '',
+        phone: '',
         studentNumber: '',
         programNumber: '',
         institution: '',
@@ -58,6 +62,11 @@ export default {
             nameRules: [
                 v => !!v || 'Name is required',
                 v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+            ],
+            phoneRules: [
+                v => !!v || 'Phone number is required',
+                v => (v && v.length >= 9) || 'Phone number needs to be at least 9 digits.',
+                v => /^\d+$/.test(v) || 'Phone number must contain only numbers.',
             ],
       
             emailRules: [
