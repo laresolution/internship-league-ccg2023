@@ -74,9 +74,9 @@ export default {
     data () {
       return {
         headerTitle: 'Internship League',
-        srcLogo: 'https://laresolution.ca/wp-content/uploads/2021/09/logo-plain512.png',
+        srcLogo: './img/logo-plain512-150x150.webp',
         altLogo: 'logoLeftPartLogo',
-        srcLeftPartLogo: 'http://laresolution.ca/internshipleague/wp-content/uploads/2023/04/financial-technology-40.png',
+        srcLeftPartLogo: './img/financial-technology-40.png',
         altLeftPartLogo: 'Left Part Logo',
         drawer: null,
         items: [
