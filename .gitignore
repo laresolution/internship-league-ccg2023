@@ -128,3 +128,5 @@ dist
 
 #MacOS
 .DS_Store
+
+static/sw.js

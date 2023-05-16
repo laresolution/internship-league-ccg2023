@@ -19,16 +19,6 @@ import AddButton from '~/components/buttons/AddButton.vue';
 export default {
     name: "Users",
     components: { AddButton },
-    data() {
-        return {
-            isFormShown: false,
-            items: [
-                {
-                    name: "Empty example"
-                }
-            ]
-        };
-    },
     computed: {
         ...mapGetters('users', [
             'users',
@@ -40,6 +30,7 @@ export default {
     },
     methods: {
         ...mapActions('users', [
+            'loadUsers',
             'addUser'
         ]),
         addRandomUser() {
@@ -50,6 +41,11 @@ export default {
                 favoriteColor: 'Green'
             })
         }
+    },
+    beforeRouteEnter(to, from, next) {
+        next(vm => {
+            vm.loadUsers()
+        })
     }
 }
 </script>
