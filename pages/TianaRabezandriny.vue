@@ -3,7 +3,7 @@
         <TRform @newMember ="affiche">
 
         </TRform>
-        <v-card class="mx-auto backColor" max-width="344" outlined>
+        <v-card class="mx-auto backColor" max-width="400" outlined>
             <v-list-item three-line>
                 <v-list-item-content>
                     <div class="text-overline mb-4">
@@ -28,6 +28,9 @@
         </v-btn>
       </v-card-actions>-->
         </v-card> 
+        <br>
+        <br>
+
     </div>
 </template>
 
@@ -71,7 +74,7 @@ export default {
 
 <style scoped>
 .backColor{
-    background-color: black;
+    background-color: grey;
 }
 .blue {
    background-color: blue; 
