@@ -7,8 +7,12 @@
                 <AddMember @created="memberCreated" @cancel="hideForm"></AddMember>
             </v-card-text>
         </v-card>
-        <MemberSection v-for="member in members" :key="member.id" v-model="member.data"></MemberSection>
+        <v-card v-if="!formShown">
+            <MemberSection v-for="member in members" :key="member.id" v-model="member.data"></MemberSection>
+        </v-card> 
     </div>
+     
+ 
 </template>
 
 <script>
@@ -39,12 +43,12 @@ export default {
                 id: 2,
                 data: {
                     id: 2,
-                    imgSrc: 'https://laresolution.ca/internshipleague/wp-content/uploads/2023/04/vitaly.jpg',
-                    name: 'Vitaly Savin Jr',
+                    imgSrc: 'https://cdn-icons-png.flaticon.com/512/10645/10645063.png',
+                    name: 'Philip Hou',
                     title: 'Web Developer',
-                    quote: 'Recently graduated in Web Development and with a solid theoretical base, I am able to learn quickly from Senior Developers and by myself. Strive to solve more complex problems in the most efficient way possible, both as a team and individually.',
-                    strengths: 'I work efficiently in a team and have great autonomy in my learning. Creative and with a good ability to synthetize, I can accurately and quickly accomplish tasks to enhance your business operations',
-                    likes: 'I enjoy running, skiing and learning new things.'
+                    quote: 'With strong interest in the front-end web development and academic background in Web development, I have gained skills in using modern front-end frameworks such as React, Angular, and Vue.js to work with content management systems (CMS) such as WordPress and Joomla...',
+                    strengths: 'Vuejs, Angular',
+                    likes: 'Music, horticulture, pets...'
                 }
             },
             { 

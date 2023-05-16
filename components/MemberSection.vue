@@ -25,15 +25,16 @@
                     </v-icon>
                 </v-btn>
             </v-col>
-            <v-col v-show="isEditing">
-                <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
-                <div class="text-h3">{{member.title}}</div>
-                <div class="text-body-2">{{member.quote}}</div>
+            <v-col v-show="isEditing" class="info">
+                <v-text-field v-model="valueModel.name" class="text-h5"></v-text-field>
+                <v-text-field v-model="valueModel.title" class="text-h5">{{member.title}}</v-text-field>
+                <v-text-field v-model="valueModel.quote" class="text-body-2">{{member.quote}}</v-text-field>
                 <div class="text-subtitle-2">Strengths</div>
-                <div class="text-body-1">{{member.strengths}}</div>
+                <v-text-field v-model="member.strengths" class="text-body-1">{{member.strengths}}</v-text-field>
+                
                 <v-spacer></v-spacer>
                 <div class="text-subtitle-2">Likes</div>
-                <div class="text-body-1">{{member.likes}}</div>
+                <v-text-field v-model="member.likes" class="text-body-1">{{member.likes}}</v-text-field>
                 <v-btn
                     class="mx-2"
                     fab
