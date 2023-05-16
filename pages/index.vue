@@ -69,7 +69,6 @@ export default {
     data() {
         return {
             headerTitle: 'Internship League',
-            srcBanner: 'http://laresolution.ca/internshipleague/wp-content/uploads/2023/04/13762396_5330999-scaled.jpg',
             altBanner: 'Banner Join Us',
             invitationText: 'Live this collaborative experience by joining the internship league! Join like minded individuals who are as excited as you are to begin practicing their craft. Acquire the experience needed to close the junior gap and get hired by showing your work.',
             textBtnJoinUs: 'Join now'
