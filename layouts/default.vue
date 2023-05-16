@@ -4,8 +4,7 @@
         class="pa-4">
         <v-navigation-drawer
             v-model="drawer"
-            app
-            style="background-color:transparent">
+            app>
             <v-list dense nav
             >
                 <v-list-item
@@ -19,7 +18,6 @@
             </v-list>
         </v-navigation-drawer>
         <v-app-bar
-            style="background-color:transparent"
             app>
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-img
@@ -39,9 +37,9 @@
                 ></v-img>
             <v-toolbar-title class="text-h3 mx-auto">{{ headerTitle }}</v-toolbar-title>
         </v-app-bar>
-        <main>
+        <v-main>
             <Nuxt />
-        </main>
+        </v-main>
         <v-footer color="#8a817c" padless class="d-flex flex-column">
             <v-row justify="center" no-gutters>
                 <v-btn
