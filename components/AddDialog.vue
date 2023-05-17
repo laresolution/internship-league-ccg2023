@@ -2,7 +2,7 @@
     <div class="text-center">
       <v-dialog
         v-model="dialog"
-        width="500"
+       
       >
         <template v-slot:activator="{ on, attrs }">
           <v-btn
