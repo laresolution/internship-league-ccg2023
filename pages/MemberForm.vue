@@ -18,13 +18,13 @@ import AddButton from '~/components/buttons/AddButton.vue';
 export default {
     name: "MemberForm",
     components: { AddButton },
-    layout: "newlayout",
+    layout: "newlayout2",
     data() {
         return {
             isFormShown: false,
             items: [
                 {
-                    name: "Empty example"
+                    name: "Empty Member"
                 }
             ]
         };
