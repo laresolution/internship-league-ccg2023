@@ -11,15 +11,15 @@
                 </v-col>
                 <v-col>
                     <v-form>
-                        <form action="/action_page.php" id="form1">
+                        <form id="form1" action="/action_page.php">
                             <label for="firstName">First name:</label>
-                            <input type="text" name="firstName" v-model="firstName">
+                            <input v-model="firstName" type="text" name="firstName">
                             <label for="lasttName">Last name:</label>
-                            <input type="text" name="lastName" v-model="lastName">
+                            <input v-model="lastName" type="text" name="lastName">
                             <label for="email">E-mail Address:</label>
-                            <input type="email" name="email" v-model="email">
+                            <input v-model="email" type="email" name="email">
                             <label for="phoneNumber">Phone Number:</label>
-                            <input type="tel" name="phoneNumber" v-model="phoneNumber">
+                            <input v-model="phoneNumber" type="tel" name="phoneNumber">
                             <div class="row btn">
                                 <input type="submit" value="Register" class="column btn-reg">
                                 <a href="https://laresolution.ca/internshipleague/login/" class="column btn-login">Login</a>
