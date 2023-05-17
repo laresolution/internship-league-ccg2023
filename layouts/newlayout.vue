@@ -1,7 +1,6 @@
 <template>
     <v-app>
-        <div>Bonjour {{ currentMember.name }}!</div>
-        
+        <div>Hello {{ currentUser.name }}!</div>
         <Nuxt />
     </v-app>
 </template>
@@ -10,8 +9,8 @@ import { mapGetters } from 'vuex'
 
 export default {
     computed: {
-        ...mapGetters('members', [
-            'currentMember'
+        ...mapGetters('users', [
+            'currentUser'
         ])
     }
 }
