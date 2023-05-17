@@ -19,7 +19,7 @@
           <v-card-title class="text-h5 grey lighten-2">
             Add new member
           </v-card-title>
-  
+          <AddMember></AddMember>
  
   
           <v-divider></v-divider>
@@ -31,7 +31,14 @@
               text 
               @click="redirect"
             >
-              Confirm
+             Confirm 
+            </v-btn>
+            <v-btn
+              color="primary"
+              text 
+              @click="cancel"
+            >
+            Cancel 
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -39,16 +46,22 @@
     </div>
   </template>
   <script>
+import AddMember from './AddMember.vue';
+
   export default {
-    data () {
-      return {
-        dialog: false,
-      }
+    data() {
+        return {
+            dialog: false,
+        };
     },
-    methods: { 
-      redirect() { 
-      this.$router.push('/');
+    methods: {
+        redirect() {
+            this.$router.push("/members");
+        },
+        cancel() {
+            this.$router.push("/");
+        },
     },
-    }
-  }
+    components: { AddMember }
+}
 </script>
