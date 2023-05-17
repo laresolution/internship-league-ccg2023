@@ -12,7 +12,7 @@
                     <v-text-field label="Supervisor name" v-model="newMember.supervisorName" :maxlength="60"></v-text-field>
                       
                     <v-row justify="space-around"> 
-                        <div>Internship star
+                        <div>Internship start
                         <v-date-picker
                         v-model="newMember.pickerStart" :min="new Date().toISOString().split('T')[0]" required
                         color="green lighten-1"
