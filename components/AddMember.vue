@@ -3,14 +3,32 @@
         <v-container>
             <v-row>
                 <v-col>
-                    <v-text-field label="Name" v-model="newMember.name"></v-text-field>
-                    <v-text-field label="Image URL" v-model="newMember.imgSrc"></v-text-field>
-                    <v-text-field label="Title" v-model="newMember.title"></v-text-field>
-                    <v-textarea label="Quote" v-model="newMember.quote"></v-textarea>
-                    <v-textarea label="Strengths" v-model="newMember.strengths"></v-textarea>
-                    <v-textarea label="Likes" v-model="newMember.likes"></v-textarea>
-                    <SaveButton @click="saveMember"></SaveButton>
-                    <CancelButton @click="clear"></CancelButton>
+                    <v-text-field label="Name" v-model="newMember.name" :rules="nameRules" :maxlength="60" required></v-text-field>
+                    <v-text-field label="Email" v-model="newMember.email" :rules="emailRules" required></v-text-field>
+                    <v-text-field label="Phone" v-model="newMember.phone" :rules="phoneRules" required></v-text-field>
+                    <v-text-field label="Student number" v-model="newMember.studentNumber" :maxlength="20" required></v-text-field>
+                    <v-text-field label="Program number" v-model="newMember.programNumber" :maxlength="20" required></v-text-field>
+                    <v-text-field label="Institution" v-model="newMember.institution" :maxlength="100"></v-text-field>
+                    <v-text-field label="Supervisor name" v-model="newMember.supervisorName" :maxlength="60"></v-text-field>
+                      
+                    <v-row justify="space-around"> 
+                        <div>Internship start
+                        <v-date-picker
+                        v-model="newMember.pickerStart" :min="new Date().toISOString().split('T')[0]" required
+                        color="green lighten-1"
+                        ></v-date-picker></div>
+
+                        <div>Internship end 
+                        <v-date-picker
+                        v-model="newMember.pickerEnd"
+                        color="green lighten-1"
+                        header-color="primary" :max="maxDate"
+                        ></v-date-picker></div>
+                        <div>
+                        <SaveButton @click="saveMember"></SaveButton>
+                        <CancelButton @click="clear">Cancel</CancelButton></div>
+                    </v-row> 
+                    
                 </v-col>
             </v-row>
         </v-container>
@@ -23,20 +41,39 @@ import SaveButton from './buttons/SaveButton.vue'
 
 const generateNewMember = () => {
     return {
-        imgSrc: '',
         name: '',
-        title: '',
-        quote: '',
-        strengths: '',
-        likes: ''
+        email: '',
+        phone: '',
+        studentNumber: '',
+        programNumber: '',
+        institution: '',
+        supervisorName: '',
+        pickerStart: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+        pickerEnd: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
     }
 }
 export default {
     name: "AddMember",
     components: { CancelButton, SaveButton },
     data() {
-        return {
-            newMember: generateNewMember()
+        return { 
+            maxDate: this.getMaxDate(),
+            newMember: generateNewMember(),
+
+            nameRules: [
+                v => !!v || 'Name is required',
+                v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+            ],
+            phoneRules: [
+                v => !!v || 'Phone number is required',
+                v => (v && v.length >= 9) || 'Phone number needs to be at least 9 digits.',
+                v => /^\d+$/.test(v) || 'Phone number must contain only numbers.',
+            ],
+      
+            emailRules: [
+                v => !!v || 'E-mail is required',
+                v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+            ],
         };
     },
     methods: {
@@ -47,7 +84,12 @@ export default {
         clear() {
             this.$emit("cancel")
             this.newMember = generateNewMember();
-        }
+        },
+        getMaxDate() {
+            const date = new Date();
+            date.setFullYear(date.getFullYear() + 2);
+            return date.toISOString().substr(0, 10);
+        },
     }
 }
 </script>
