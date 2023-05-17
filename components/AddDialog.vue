@@ -58,7 +58,7 @@ import AddMember from './AddMember.vue';
     },
     methods: {
         redirect() {
-            this.$router.push("/members");
+            this.$router.push("/memberForm");
         }, 
     },
     components: { AddMember }
