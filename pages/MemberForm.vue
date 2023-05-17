@@ -1,8 +1,8 @@
 <template>
     <div>
-        <!-- <router-link to="Contact">Contact</router-link> -->
-        {{ currentMember.id }}  
-        <AddButton @click="addRandomMember"></AddButton>
+        <router-link to="demo">demo</router-link>
+        {{ currentMember.id }} 
+        <AddDialog></AddDialog>
         <ul>
             <li v-for="member in members" :key="member.id">
                 {{member.name}}
@@ -13,11 +13,11 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import AddButton from '~/components/buttons/AddButton.vue';
+import AddDialog from '~/components/AddDialog.vue'; 
 
 export default {
     name: "MemberForm",
-    components: { AddButton },
+    components: {  AddDialog },
     layout: "newlayout2",
     data() {
         return {
