@@ -1,11 +1,14 @@
 <template>
-    <v-container fluid class="pt-16"
+    <v-container
+        class="pa-0"
+        fluid
         style="
             background-repeat: no-repeat;
             background-position: center top;
             background-size: cover;
             background-image: linear-gradient(180deg,rgba(9,9,21,0) 0%,#090915 100%), url(./img/bcground-home.jpg)!important;">
-        <span style="
+        <span
+            style="
             position: absolute;
             top: 0;
             bottom: 0;
@@ -28,18 +31,23 @@
                     <v-row
                         class="pa-8 mx-0"
                     >
-                        <div class="ms-4 title" align="center"
-                        style="
-                            color: #FFFFFF;
-                            font-weight: 500;">
-                            {{ invitationText }}
+                        <div
+                            class="ms-4 title" align="center"
+                            style="
+                                color: #FFFFFF;
+                                font-weight: 500;">
+                                {{ invitationText }}
                         </div>
                     </v-row>
                 </v-card-text>
             </v-card>
         </v-row>
         <v-row no-gutters  class="px-16 py-8">
-            <v-img :alt="altBanner" id="banner" src="./img/img-banner.jpg"></v-img>
+            <v-img
+                id="banner"
+                :alt="altBanner"
+                src="./img/img-banner.jpg">
+            </v-img>
         </v-row>
         <v-row no-gutters justify="center" style="height: 5rem; background-color: black;">
             <v-btn 
@@ -51,8 +59,8 @@
         </v-row>
         <v-row no-gutters>
             <v-img
-                alt="separateur"
                 id="separateur"
+                alt="separateur"
                 src="./img/bcground-home-2.jpg"
                 height="350px"
                 background-position="center"

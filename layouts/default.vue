@@ -1,5 +1,6 @@
 <template>
-    <v-app id="inspire"
+    <v-app 
+        id="inspire"
         elevation="2"
         class="pa-4">
         <v-navigation-drawer
@@ -18,7 +19,8 @@
             </v-list>
         </v-navigation-drawer>
         <v-app-bar
-            app>
+            app
+            class="bcg">
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-img
                 :lazy-src="srcLeftPartLogo"
@@ -35,18 +37,23 @@
                 :src="srcLogo"
                 :alt="altLogo"
                 ></v-img>
-            <v-toolbar-title class="text-h3 mx-auto">{{ headerTitle }}</v-toolbar-title>
+            <v-toolbar-title
+                style="
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%, 0);"
+                class="text-h4 white--text font-weight-bold mx-auto">{{ headerTitle }}</v-toolbar-title>
         </v-app-bar>
         <v-main>
             <Nuxt />
         </v-main>
-        <v-footer color="#8a817c" padless class="d-flex flex-column">
+        <v-footer padless class="bcg d-flex flex-column">
             <v-row justify="center" no-gutters>
                 <v-btn
                     v-for="item in items"
                     :key="item.title"
                     :href="item.url"
-                    color="rgba(0,0,0,.6)"
+                    color="white"
                     text
                     rounded
                     class="my-4"
@@ -58,11 +65,12 @@
                     {{ item.title }}
                 </v-btn>
             </v-row>
-            <v-row no-gutters style="
-                        color: rgba(0,0,0,.6);
-                        letter-spacing: 2px;
-                        font-weight: 700;
-                        padding-bottom: 1rem;">
+            <v-row
+                    no-gutters style="
+                    color: white;
+                    letter-spacing: 2px;
+                    font-weight: 700;
+                    padding-bottom: 1rem;">
                 Copyright © {{ new Date().getFullYear() }} — Laresolution
             </v-row>
         </v-footer>
@@ -92,5 +100,11 @@ export default {
 }
 </script>
 <style scoped type="scss">
+.bcg{
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-image: linear-gradient(180deg,rgba(9,9,21,0) 0%,#090915 100%), url('/img/bcground-home.jpg')!important;
+}
 
 </style>
