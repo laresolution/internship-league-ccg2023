@@ -7,7 +7,7 @@
       <v-container fluid>
         <v-row>
           <v-col cols="3">
-            <v-img src="https://laresolution.ca/internshipleague/wp-content/uploads/2023/04/vitaly.jpg" height="88" cover></v-img>
+            <v-img src="https://laresolution.ca/internshipleague/wp-content/uploads/2023/04/vitaly.jpg" class="rounded-circle" cover></v-img>
           </v-col>
   
           <v-col v-show="!isEditing" cols="9">
