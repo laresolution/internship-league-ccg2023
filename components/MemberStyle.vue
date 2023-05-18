@@ -13,13 +13,13 @@
           <v-col v-show="!isEditing" cols="9">
             
                 <div class="text-h2"><!-- {{valueModel.name}} --></div>
-                <div class="text-h3"><!-- {{member.title}} --></div>
-                <div class="text-body-2"><!-- {{member.quote}} --></div>
+                <div class="text-h3"> {{member.title}}</div>
+                <div class="text-body-2">{{member.quote}} </div>
                 <div class="text-subtitle-2">Strengths</div>
-                <div class="text-body-1"><!-- {{member.strengths}} --></div>
+                <div class="text-body-1"> {{member.strengths}}</div>
                 <v-spacer></v-spacer>
                 <div class="text-subtitle-2">Likes</div>
-                <div class="text-body-1"><!-- {{member.likes}} --></div>
+                <div class="text-body-1"> {{member.likes}} </div>
            
           </v-col>
         </v-row>
@@ -43,14 +43,14 @@
       </v-row>
 
       <v-col v-show="isEditing">
-                <v-text-field></v-text-field>
-                <div class="text-h3"><!-- {{member.title}} --></div>
-                <div class="text-body-2"><!-- {{member.quote}} --></div>
+                <v-text-field ></v-text-field>
+                <div class="text-h3">{{member.title}} </div>
+                <div class="text-body-2">{{member.quote}} </div>
                 <div class="text-subtitle-2">Strengths</div>
-                <div class="text-body-1"><!-- {{member.strengths}} --></div>
+                <div class="text-body-1"> {{member.strengths}} </div>
                 <v-spacer></v-spacer>
                 <div class="text-subtitle-2">Likes</div>
-                <div class="text-body-1"><!-- {{member.likes}} --></div>
+                <div class="text-body-1"> {{member.likes}}</div>
                 <v-btn
                     class="mx-2"
                     fab
@@ -69,6 +69,7 @@
   <script>
   import SvgIcon from '@jamescoyle/vue-icon';
   import { mdiLinkedin } from '@mdi/js';
+ // import vModelObjectMixin from '~/mixins/vModelObjectMixin';
   export default {
   name: "MemberStyle",
   components: {
@@ -79,6 +80,24 @@
        path: mdiLinkedin,
        isEditing: false
     }
-  }
+  },
+  computed: {
+        member () {
+            return this.value || {};
+        }
+    },
+    methods: {
+        startEdit() {
+            this.isEditing = true;
+        },
+        save () {
+            this.isEditing = false;
+            this.emitValue()
+        },
+        cancel () {
+            this.isEditing = false;
+        }
+    }
+  
 }
   </script>
