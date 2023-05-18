@@ -94,20 +94,21 @@ export default {
     methods: {
         saveMember() {
             // Push the new member object to the array
-        this.members.push(this.newMember);
-
-        console.log(this.newMember); 
+        this.members.push(this.newMember); 
+        console.log(this.newMember);
+        console.log('*** Save ***'); 
         // Reset the form
-        this.newMember = generateNewMember();
+        this.newMember = generateNewMember(); 
         console.log(this.members);
 
-        // this.$emit("created", this.newMember);
-          
-            
+        // this.$emit("created", this.newMember); 
         },
         clear() {
-            this.$emit("cancel")
+            console.log(this.newMember); 
+            console.log('*** Cancel ***');
+            // this.$emit("cancel")
             this.newMember = generateNewMember();
+            console.log(this.members);
         },
         getMaxDate() {
             const date = new Date();
