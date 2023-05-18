@@ -33,7 +33,7 @@
               text 
               @click="redirect"
             >
-             Confirm 
+             Submit 
             </v-btn>
             <v-btn
               color="primary"
