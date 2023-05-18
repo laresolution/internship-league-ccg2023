@@ -14,13 +14,13 @@
                     <v-row justify="space-around"> 
                         <div>Internship start
                         <v-date-picker
-                        v-model="newMember.pickerStart" :min="new Date().toISOString().split('T')[0]" required
+                        v-model="pickerStart" :min="new Date().toISOString().split('T')[0]" required
                         color="green lighten-1"
                         ></v-date-picker></div>
 
                         <div>Internship end 
                         <v-date-picker
-                        v-model="newMember.pickerEnd"
+                        v-model="pickerEnd"
                         color="green lighten-1"
                         header-color="primary" :max="maxDate"
                         ></v-date-picker></div>
@@ -48,8 +48,8 @@ const generateNewMember = () => {
         programNumber: '',
         institution: '',
         supervisorName: '',
-        pickerStart: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-        pickerEnd: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+        startDate:'',
+        endDate:''
     }
 }
 export default {
@@ -58,6 +58,8 @@ export default {
     data() {
         return { 
             maxDate: this.getMaxDate(),
+            pickerStart: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+            pickerEnd: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
             newMember: generateNewMember(),
 
             nameRules: [
