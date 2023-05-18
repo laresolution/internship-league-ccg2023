@@ -93,7 +93,7 @@ export default {
     methods: {
         saveMember() {
             console.log(this.newMember);  
-            // this.$emit("created", this.newMember);
+            this.$emit("created", this.newMember);
             this.newMember = generateNewMember();
             
         },
