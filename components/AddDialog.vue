@@ -31,7 +31,7 @@
             <v-btn
               color="primary"
               text 
-              @click="redirect"
+              @click="saveMember"
             >
              Submit 
             </v-btn>
@@ -57,8 +57,8 @@ import AddMember from './AddMember.vue';
         };
     },
     methods: {
-        redirect() {
-            this.$router.push("/");
+            saveMember() {
+             
         }, 
     },
     components: { AddMember }
