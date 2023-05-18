@@ -94,7 +94,7 @@ export default {
         saveMember() {
             console.log(this.newMember);  
             this.$emit("created", this.newMember);
-            this.newMember = generateNewMember();
+            // this.newMember = generateNewMember();
             console.log("***");
             console.log(this.newMember);    
         },
