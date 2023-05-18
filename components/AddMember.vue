@@ -49,8 +49,7 @@ const generateNewMember = () => {
         institution: '',
         supervisorName: '',
         startDate:'',
-        endDate:''
-        
+        endDate:'' 
          
     }
 }
