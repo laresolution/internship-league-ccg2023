@@ -63,27 +63,42 @@
 
 <script>
 import { v4 as uuidv4 } from 'uuid';
+import { mapGetters, mapActions } from 'vuex'
 import AddCustomer from '../components/AddCustomer.vue'
 export default {
     name: 'Hire',
     components: { AddCustomer },
+    beforeRouteEnter(to, from, next) {
+        next(vm => {
+            vm.loadCustomers()
+        })
+    },
     data() {
         return {
-            customers:[],
             pageTitle: 'Hire Our Interns',
             altBanner: 'Banner Hire Our Interns',
             invitationText: 'Be confident in the person you wish to collaborate with to have the required skills, resources and support to contribute to the success of your enterprise. Use this button to browse our collaborators portfolio!',
             textBtnRedirectToMembers: 'Discover your potential hire!'
         }
     },
+    computed: {
+        ...mapGetters('customers', [
+            'customers',
+            'currentCustomer'
+        ]),
+        regularComputedProperty () {
+            return true
+        }
+    },
     methods: {
+        ...mapActions('customers', [
+            'loadCustomers',
+            'addCustomer'
+        ]),
         customerCreated(newCustomer) {
             const newId = uuidv4()
             newCustomer.id = newId
-            this.customers.push({
-                id: newId,
-                data: newCustomer
-            })
+            this.addCustomer(newCustomer)
         }
     }
 }

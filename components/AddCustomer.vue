@@ -94,7 +94,19 @@
                         required
                         ></v-text-field>
                     </v-col>
-                    <v-col cols="12">
+                    <v-col
+                        cols="4"
+                        sm="6"
+                    >
+                        <v-select
+                        v-model="newCustomer.countryPhoneCode"
+                        :items="['+1', '+7', '+33', '+86']"
+                        :rules="countryPhoneCodeRules"
+                        label="Country phone code*"
+                        required
+                        ></v-select>
+                    </v-col>
+                    <v-col cols="8" sm="6">
                         <v-text-field
                         v-model="newCustomer.phoneNumber"
                         :rules="phoneRules"
@@ -130,7 +142,9 @@ const generateNewCustomer = () => {
         companyName: '',
         roleInCompany: '',
         companyNumber: '',
-        phoneNumber: ''
+        countryPhoneCode: '',
+        phoneNumber: '',
+        validated: false
     }
 }
 export default {
@@ -152,6 +166,9 @@ export default {
         v => !!v || 'Email is required',
         v => /.+@.+\..+/.test(v) || 'Email must be valid'
       ],
+      countryPhoneCodeRules: [
+        v => !!v || 'Country phone code is required',
+      ],
       phoneRules: [
         v => !!v || 'Phone is required',
         v => /^[0-9]{10}$/.test(v) || 'Phone must be a 10-digit number'
@@ -166,7 +183,7 @@ export default {
       ],
       companyNumberRules: [
         v => !!v || 'Company Number is required',
-        v => /^[0-9]{20}$/.test(v) || 'Company Number must be a 20-digit number'
+        v => (v && v.length <= 20) || 'Company Number must be less then 20 characters'
       ]
         };
     },
