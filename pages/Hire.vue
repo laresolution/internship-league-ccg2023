@@ -1,56 +1,29 @@
 <template>
     <v-container
         class="pa-0"
-        fluid
-        style="
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: cover;
-            background-image: linear-gradient(180deg,rgba(9,9,21,0) 0%,#090915 100%), url(./img/bcground-home.jpg)!important;">
-        <span
-            style="
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-image: url(./img/bcg-pattern.svg);
-            background-size: 8px auto;
-            background-position: 0 0;
-            background-repeat: repeat;
-        "></span>
+        fluid>
         <v-row no-gutters>
             <v-card
-                class="mx-auto"
+                class="mx-auto pa-8"
                 max-width="80%"
-                outlined
-                style="
-                border: none;
-                background-color:transparent" >
+                outlined>
                 <v-card-text
-                    class="ms-4 text-h2 text-center"
-                    style="
-                        color: #FFFFFF;
-                        font-weight: 500;">
+                    class="ms-4 text-h2 text-center font-weight-bold">
                     {{ pageTitle }}
                 </v-card-text>
                 <v-card-text>
-                    <v-row
-                        class="pa-8 mx-0"
-                    >
-                        <div
-                            class="ms-4 title" align="center"
-                            style="
-                                color: #FFFFFF;
-                                font-weight: 500;">
-                                {{ invitationText }}
+                    <v-row class="pa-8 mx-0">
+                        <div class="ms-4 title text-center font-weight-bold">
+                            {{ invitationText }}
                         </div>
                     </v-row>
                     <v-row no-gutters justify="center">
                         <v-btn 
                             elevation="2"
-                            href="/members"
-                            style="background-color: #FFBB01; color:rgb(224, 43, 32); font-size:20px; text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4); letter-spacing:4px; font-weight:700; padding: 24px 20px;">
+                            to="/members"
+                            color="amber accent-3"
+                            x-large
+                            class="title red--text text-center font-weight-bold">
                             {{ textBtnRedirectToMembers }}
                         </v-btn>
                     </v-row>
@@ -64,8 +37,8 @@
             src="./img/hire-our-interns.jpg">
             </v-img>
         </v-row>
-        <v-row no-gutters justify="center" style="height: 5rem; background-color: black;">
-            <AddCustomer @created="customerCreated"/>
+        <v-row no-gutters justify="center">
+            <AddCustomer class="my-5" @created="customerCreated"/>
         </v-row>
         <v-row no-gutters>
             <v-img
@@ -89,8 +62,8 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from 'uuid';
 import AddCustomer from '../components/AddCustomer.vue'
-import { generateUUID } from '~/utils';
 export default {
     name: 'Hire',
     components: { AddCustomer },
@@ -105,7 +78,7 @@ export default {
     },
     methods: {
         customerCreated(newCustomer) {
-            const newId = generateUUID(5)
+            const newId = uuidv4()
             newCustomer.id = newId
             this.customers.push({
                 id: newId,

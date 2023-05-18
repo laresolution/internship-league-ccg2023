@@ -7,14 +7,10 @@
         >
         <template #activator="{ on, attrs }">
             <v-btn
-            style="
-                    background-color: #FFBB01;
-                    color:rgb(224, 43, 32);
-                    font-size:20px;
-                    text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4);
-                    letter-spacing:4px;
-                    font-weight:700;
-                    padding: 24px 20px;"
+            elevation="2"
+            color="amber accent-3"
+            x-large
+            class="title red--text text-center font-weight-bold"
             v-bind="attrs"
             v-on="on"
             >
