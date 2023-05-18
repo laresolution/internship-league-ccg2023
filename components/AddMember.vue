@@ -95,11 +95,15 @@ export default {
             console.log(this.newMember);  
             this.$emit("created", this.newMember);
             this.newMember = generateNewMember();
-            
+            console.log("***");
+            console.log(this.newMember);    
         },
         clear() {
+            console.log(this.newMember);  
             this.$emit("cancel")
             this.newMember = generateNewMember();
+            console.log("***");
+            console.log(this.newMember);  
         },
         getMaxDate() {
             const date = new Date();
