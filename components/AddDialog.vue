@@ -1,8 +1,7 @@
 <template>
     <div class="text-center">
       <v-dialog
-        v-model="dialog"
-       
+        v-model="dialog" 
       >
         <template v-slot:activator="{ on, attrs }">
           <v-btn 
@@ -21,9 +20,7 @@
           <v-card-title class="text-h5 grey lighten-2">
             Add new member
           </v-card-title>
-          <AddMember></AddMember>
- 
-  
+          <AddMember ref="addMember"></AddMember> 
           <v-divider></v-divider>
   
           <v-card-actions>
@@ -31,7 +28,7 @@
             <v-btn
               color="primary"
               text 
-              @click="saveMember"
+              @click="enregistrerMembre"
             >
              Submit 
             </v-btn>
@@ -57,8 +54,13 @@ import AddMember from './AddMember.vue';
         };
     },
     methods: {
-            saveMember() {
-             
+            enregistrerMembre() { // alert('enregistreMembre')
+              // Get the member information from the child component
+            const currentMember = this.$refs.addMember.saveMember();
+ 
+              // Save the member information or perform any other desired action
+            console.log(currentMember); // Example: Log the member information to the console
+               
         }, 
     },
     components: { AddMember }
