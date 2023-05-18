@@ -50,6 +50,8 @@ const generateNewMember = () => {
         supervisorName: '',
         startDate:'',
         endDate:''
+        
+         
     }
 }
 export default {
