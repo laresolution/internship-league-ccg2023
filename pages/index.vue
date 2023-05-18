@@ -1,44 +1,16 @@
 <template>
     <v-container
         class="pa-0"
-        fluid
-        style="
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: cover;
-            background-image: linear-gradient(180deg,rgba(9,9,21,0) 0%,#090915 100%), url(./img/bcground-home.jpg)!important;">
-        <span
-            style="
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-image: url(./img/bcg-pattern.svg);
-            background-size: 8px auto;
-            background-position: 0 0;
-            background-repeat: repeat;
-        "></span>
+        fluid>
         <v-row no-gutters>
             <v-card
-                class="mx-auto"
+                class="mx-auto pa-8"
                 max-width="80%"
-                outlined
-                style="
-                border: none;
-                background-color:transparent" >
+                outlined>
                 <v-card-text>
-                    <v-row
-                        class="pa-8 mx-0"
-                    >
-                        <div
-                            class="ms-4 title" align="center"
-                            style="
-                                color: #FFFFFF;
-                                font-weight: 500;">
-                                {{ invitationText }}
-                        </div>
-                    </v-row>
+                    <p class="ms-4 title text-center font-weight-bold">
+                        {{ invitationText }}
+                    </p>
                 </v-card-text>
             </v-card>
         </v-row>
@@ -51,9 +23,13 @@
         </v-row>
         <v-row no-gutters justify="center" style="height: 5rem; background-color: black;">
             <v-btn 
+                id="regform"
                 elevation="2"
-                href="#regform"
-                style="background-color: #FFBB01; color:rgb(224, 43, 32); font-size:20px; text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4); letter-spacing:4px; font-weight:700; padding: 24px 20px;">
+                to="#regform"
+                color="amber accent-3"
+                x-large
+                class="title red--text text-center font-weight-bold"
+                >
                 {{ textBtnJoinUs }}
             </v-btn>
         </v-row>
