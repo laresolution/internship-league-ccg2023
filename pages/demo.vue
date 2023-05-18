@@ -56,17 +56,18 @@
                 ]),
                 addRandomMember() {
                     const id = Math.ceil(Math.random() * 100000)
+                     
                     this.addMember({
                         id,
-                        name: `New Member (${id})`, 
-                        email: 'p@gmail.com',
-                        phone: '5142223344',
-                        studentNumber: '123456789',
-                        programNumber: '123456789',
-                        institution: '123456789',
-                        supervisorName: '123456789',
-                        startDate:'20230518',
-                        endDate:'20230528'  
+                        name: `name(${id})`, 
+                        email: 'philip@gmail.com',
+                        phone: `phonet${id}`,
+                        studentNumber: `student${id}`,
+                        programNumber: `program${id}`,
+                        institution: `student${id}`,
+                        supervisorName: `institution${id}`,
+                        startDate: `startDate${id}`,
+                        endDate: `endDate${id}`,
                     })
                 }
             }
