@@ -7,44 +7,38 @@
       <v-container fluid>
         <v-row>
           <v-col cols="3">
-            <v-img src="https://vuetifyjs.b-cdn.net/docs/images/graphics/img-placeholder.png" height="88" cover></v-img>
+            <v-img src="https://laresolution.ca/internshipleague/wp-content/uploads/2023/04/vitaly.jpg" height="88" cover></v-img>
           </v-col>
   
-          <v-col cols="9">
-            <p class="mb-4">
-              This is part of our <a href="#">Most Comprehenseive Guide to Referral Programs</a> > <a href="#">Do I Need A Referral Program?</a> section. You may enjoy other related articles:
-            </p>
-  
-            <ul class="ps-4 mb-6">
-              <li>
-                <a href="#">5 Ways to See if Referral Programs Can Work for You</a>
-              </li>
-              <li>
-                <a href="#">The 6 Key Benefits of Referral Marketing</a>
-              </li>
-              <li>
-                <a href="#">Leading Indicators of Referral Program Success</a>
-              </li>
-              <li>
-                <a href="#">Debunking the Top 5 Worst Referral Program Myths</a>
-              </li>
-            </ul>
-  
-            <v-btn
-              block
-              class="text-none"
-              color="info"
-              rounded="0"
-              variant="flat"
-            >
-              Explore our 38+ Referral Program Resources
-            </v-btn>
+          <v-col v-show="!isEditing" cols="9">
+            
+                <div class="text-h2"><!-- {{valueModel.name}} --></div>
+                <div class="text-h3"><!-- {{member.title}} --></div>
+                <div class="text-body-2"><!-- {{member.quote}} --></div>
+                <div class="text-subtitle-2">Strengths</div>
+                <div class="text-body-1"><!-- {{member.strengths}} --></div>
+                <v-spacer></v-spacer>
+                <div class="text-subtitle-2">Likes</div>
+                <div class="text-body-1"><!-- {{member.likes}} --></div>
+           
           </v-col>
         </v-row>
 
         <v-row no-gutters >
-        <v-col>          
+        <v-col cols="6">          
             <svg-icon type="mdi" :path="path"></svg-icon>         
+        </v-col>
+        <v-col cols="6">
+            <v-btn
+                    class="mx-2"
+                    fab
+                    color="primary"
+                    @click="startEdit"
+                >
+                    <v-icon dark>
+                        mdi-pencil
+                    </v-icon>
+                </v-btn>
         </v-col>
       </v-row>
 
@@ -63,6 +57,7 @@
   data() {
     return {
        path: mdiLinkedin,
+       isEditing: false
     }
   }
 }
