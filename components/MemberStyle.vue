@@ -42,6 +42,26 @@
         </v-col>
       </v-row>
 
+      <v-col v-show="isEditing">
+                <v-text-field></v-text-field>
+                <div class="text-h3"><!-- {{member.title}} --></div>
+                <div class="text-body-2"><!-- {{member.quote}} --></div>
+                <div class="text-subtitle-2">Strengths</div>
+                <div class="text-body-1"><!-- {{member.strengths}} --></div>
+                <v-spacer></v-spacer>
+                <div class="text-subtitle-2">Likes</div>
+                <div class="text-body-1"><!-- {{member.likes}} --></div>
+                <v-btn
+                    class="mx-2"
+                    fab
+                    color="success"
+                    @click="save"
+                >
+                    <v-icon dark>
+                        mdi-content-save
+                    </v-icon>
+                </v-btn>
+            </v-col>
       </v-container>
     </v-sheet>
   </template>
