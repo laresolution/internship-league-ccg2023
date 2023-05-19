@@ -1,10 +1,7 @@
 <template>
     <v-container>
         <v-row>
-            <v-spacer></v-spacer>
-            <v-col>
-                <v-img :src="member.imgSrc" max-height="240" max-width="240" />
-            </v-col>
+            <v-spacer></v-spacer> 
             <v-col v-show="!isEditing">
                 <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
   
