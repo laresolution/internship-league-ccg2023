@@ -91,12 +91,12 @@ export default {
         };
     },
     methods: {
-        saveMember() {
-            console.log(this.newMember);  
+        saveMember() { 
             this.$emit("created", this.newMember);
-            // this.newMember = generateNewMember();
+            // this.newMember = generateNewMember(); -- to reset 
             console.log("***");
-            console.log(this.newMember);    
+            console.log(this.newMember);
+            return this.newMember; // Return the member information    
         },
         clear() {
             console.log(this.newMember);  
