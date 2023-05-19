@@ -39,7 +39,8 @@ export default {
     methods: {
       submit () {
         // this.$v.$touch()
-        alert("MESSAGE ENVOYÉ!!!");
+        
+        alert(this.name.substring(0, this.name.indexOf(' '))+" ,votre message a été envoyé ! ");
       },
       clear () {
         // this.$v.$reset()

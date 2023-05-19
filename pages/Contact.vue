@@ -45,34 +45,13 @@
             </div>
         </div>
         <br>
-        <!-- <v-divider :thickness="13" class="border-opacity-100" color="orange"></v-divider> -->
+       
 
         <v-btn block color="black" depressed elevation="22" plain rounded text @click="affiche">{{ schedule }}</v-btn><br>
-        <!-- <p class="text-left titre1">
-            {{ schedule }}
-        </p> -->
-        <!-- <v-divider :thickness="13" class="border-opacity-100" color="orange"></v-divider> -->
+      
 
         <div v-if="seen">
-            <!-- <v-divider :thickness="13" class="border-opacity-100" color="orange"></v-divider>
-            <v-form>
-
-                <form>
-                    <v-text-field v-model="name"  label="Name" required>
-                    </v-text-field>
-                    <v-text-field v-model="email" label="E-mail" required></v-text-field>
-                    <v-text-field v-model="phoneNumber"  label="Phone Number" required></v-text-field>
-                    <v-select v-model="select" :items="items" label="Availability" required></v-select>
-                    <v-checkbox v-model="checkbox" label="Do you agree?" required></v-checkbox>
-
-                    <v-btn class="mr-4" @click="submit">
-                        submit
-                    </v-btn>
-                    <v-btn @click="clear">
-                        clear
-                    </v-btn>
-                </form>
-            </v-form> -->
+            
             <ContactForm>
 
             </ContactForm>
@@ -92,7 +71,7 @@ export default {
             srcBanner: 'http://laresolution.ca/internshipleague/wp-content/uploads/2023/04/13762396_5330999-scaled.jpg',
             title: 'CONTACT US !',
             seen: false,
-            schedule: 'For more details - click to schedule a Call-back '
+            schedule: 'For more details - click here to schedule a Call-back '
         }
     },
     methods: {
