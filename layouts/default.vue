@@ -6,16 +6,13 @@
         <v-navigation-drawer
             v-model="drawer"
             app>
-            <v-list dense nav
-            >
+            <v-list dense nav>
                 <v-list-item
-                v-for="item in items"
-                :key="item.title"
-                :href="item.url"
-                class="text-uppercase font-weight-bold pointer"
-                >
-                    {{ item.title }}
-                </v-list-item>
+                    v-for="item in items"
+                    :key="item.title"
+                    :to="item.url"
+                    class="text-uppercase font-weight-bold pointer"
+                >{{ item.title }}</v-list-item>
             </v-list>
         </v-navigation-drawer>
         <v-app-bar
@@ -38,39 +35,27 @@
                 :alt="altLogo"
                 ></v-img>
             <v-toolbar-title
-                style="
-                    position: absolute;
-                    left: 50%;
-                    transform: translate(-50%, 0);"
-                class="text-h4 white--text font-weight-bold mx-auto">{{ headerTitle }}</v-toolbar-title>
+                class="absolut-text display-2 font-weight-bold mx-auto">
+                {{ headerTitle }}
+            </v-toolbar-title>
         </v-app-bar>
         <v-main>
             <Nuxt />
         </v-main>
-        <v-footer padless class="bcg d-flex flex-column">
+        <v-footer padless class="d-flex flex-column">
             <v-row justify="center" no-gutters>
                 <v-btn
                     v-for="item in items"
                     :key="item.title"
-                    :href="item.url"
-                    color="white"
+                    :to="item.url"
                     text
                     rounded
-                    class="my-4"
-                    style="
-                        letter-spacing: 2px;
-                        font-size: 20px;
-                        font-weight: 700;"
-                >
-                    {{ item.title }}
-                </v-btn>
+                    class="my-4 title font-weight-bold"
+                >{{ item.title }}</v-btn>
             </v-row>
             <v-row
-                    no-gutters style="
-                    color: white;
-                    letter-spacing: 2px;
-                    font-weight: 700;
-                    padding-bottom: 1rem;">
+                no-gutters
+                class="title font-weight-bold pb-4">
                 Copyright © {{ new Date().getFullYear() }} — Laresolution
             </v-row>
         </v-footer>
@@ -100,11 +85,10 @@ export default {
 }
 </script>
 <style scoped type="scss">
-.bcg{
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-    background-image: linear-gradient(180deg,rgba(9,9,21,0) 0%,#090915 100%), url('/img/bcground-home.jpg')!important;
+.absolut-text{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 </style>
