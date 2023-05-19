@@ -66,6 +66,9 @@ import AddMember from './AddMember.vue';
     this.$emit('member-saved', currentMember);
     this.$router.push("/MemberForm");
     this.dialog = false
+    console.log("AddDialog:")
+    console.log(this.currentMember)
+    return this.currentMember;
   },
     }, 
 }
