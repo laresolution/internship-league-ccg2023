@@ -1,10 +1,11 @@
 <template>
+        <v-container>
             <div>
                 <router-link to="MemberForm">Member Form</router-link> 
                 {{ currentMember.id }}  
                 <AddButton @click="addRandomMember"></AddButton>
-            
-                <AddDialogVue ></AddDialogVue>
+                <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
+                 
                 
                 <ul>
                     <li v-for="member in members" :key="member.id">
@@ -20,16 +21,17 @@
                     </li>
                 </ul>
             </div>
+            </v-container>
         </template>
         
         <script>
         import { mapGetters, mapActions } from 'vuex'
         import AddButton from '~/components/buttons/AddButton.vue';
          
-        import AddDialogVue from '~/components/AddDialog.vue';
+        import AddDialog  from '~/components/AddDialog.vue';
         export default {
             name: "MemberForm",
-            components: { AddButton,  AddDialogVue},
+            components: { AddButton,  AddDialog },
             layout: "newlayout2",
             data() {
                 return {
