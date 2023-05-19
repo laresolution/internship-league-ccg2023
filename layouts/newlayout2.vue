@@ -1,7 +1,6 @@
 <template>
     <v-app>
-        <div>Bonjour {{ currentMember.name }}!</div>
-        
+        <h1>Bienvenue à larésolution Internship-League!</h1> 
         <Nuxt />
     </v-app>
 </template>
