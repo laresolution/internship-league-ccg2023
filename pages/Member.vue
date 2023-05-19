@@ -8,7 +8,7 @@
                     <AddMember @created="memberCreated" @cancel="hideForm"></AddMember>
                 </v-card-text>
             </v-card>
-            <MemberStyle></MemberStyle>
+            <MemberStyle v-for="member in members" :key="member.id" v-model="member.data"></MemberStyle>
     </div>
     </template>
 
