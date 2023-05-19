@@ -6,6 +6,7 @@
         <div>  
         <ul v-show="false">
             <li v-for="member in members" :key="member.id">
+                {{member.id}}
                 {{member.name}}   
                 {{member.email}}
                 {{member.phone}}   
