@@ -14,11 +14,10 @@
       };
     },
     methods: {
-      handleMemberSaved(member) {
-        console.log(member);
+      handleMemberSaved(member) { 
         // Access the saved member information here
         this.currentMember = member;
-        console.log('Member info from dialog:'); 
+        console.log('Member info by emit:'); 
         console.log(this.currentMember);
       }
     }
