@@ -5,7 +5,7 @@
             <v-col v-show="!isEditing">
                 <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
   
-                <div class="text-body-1">{{member.name}} </div>
+                <!-- <div class="text-body-1">{{member.name}} </div> -->
                 <div class="text-body-1">{{member.email}} </div>
                 <div class="text-body-1">{{member.phone}}  </div>   
                 <div class="text-body-1">{{member.studentNumber}} </div>
@@ -27,8 +27,8 @@
             </v-col>
             <v-col v-show="isEditing">
                 <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
-                <div class="text-body-1">{{member.name}} </div>
-                <div class="text-body-1">{{member.email}} </div>
+                <div class="text-body-1">{{member.name}} </div> 
+                <div class="text-body-1">{{member.email}} </div> 
                 <div class="text-body-1">{{member.phone}}  </div>   
                 <div class="text-body-1">{{member.studentNumber}} </div>
                 <div class="text-body-1">{{member.programNumber}} </div>
@@ -36,6 +36,7 @@
                 <div class="text-body-1">{{member.supervisorName}} </div>
                 <div class="text-body-1">{{member.startDate}} </div>
                 <div class="text-body-1">{{member.endDate}} </div>
+                <input >
                 <v-btn
                     class="mx-2"
                     fab
@@ -64,7 +65,9 @@ export default {
         }
     },
     computed: {
-        member () {
+        member() {
+            console.log("the form data:")
+            console.log(this.value);
             return this.value || {};
         }
     },
