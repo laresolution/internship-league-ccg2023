@@ -51,18 +51,20 @@ import AddMember from './AddMember.vue';
     data() {
         return {
             dialog: false,
+            currentMember: null // Initialize currentMember
         };
     },
+    components: { AddMember }, 
     methods: {
-            enregistrerMembre() { // alert('enregistreMembre')
-              // Get the member information from the child component
-            const currentMember = this.$refs.addMember.saveMember();
- 
-              // Save the member information or perform any other desired action
-            console.log(currentMember); // Example: Log the member information to the console
-               
-        }, 
-    },
-    components: { AddMember }
+      enregistrerMembre() {
+    // Get the member information from the child component
+    const currentMember = this.$refs.addMember.saveMember();
+
+    // Save the member information or perform any other desired action
+    this.currentMember = currentMember; 
+    // Emit an event to send the member information to the parent component
+    this.$emit('member-saved', currentMember);
+  },
+    }, 
 }
 </script>
