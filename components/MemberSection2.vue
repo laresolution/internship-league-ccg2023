@@ -59,7 +59,7 @@
 import vModelObjectMixin from '~/mixins/vModelObjectMixin';
 
 export default {
-    name: 'MemberSection',
+    name: 'MemberSection2',
     mixins: [vModelObjectMixin],
     data() {
         return {
