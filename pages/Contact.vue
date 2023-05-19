@@ -21,7 +21,7 @@ export default {
     components: { AddButton },
     data() {
         return {
-            isFormShown: false,
+            isFormShown: true,
             items: [
                 {
                     name: "Empty example"
