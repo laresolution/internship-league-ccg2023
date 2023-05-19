@@ -54,19 +54,16 @@
         <!-- <v-divider :thickness="13" class="border-opacity-100" color="orange"></v-divider> -->
 
         <div v-if="seen">
-            <v-divider :thickness="13" class="border-opacity-100" color="orange"></v-divider>
+            <!-- <v-divider :thickness="13" class="border-opacity-100" color="orange"></v-divider>
             <v-form>
-                
-                <form class="bg-white text-dark">
-                    <v-text-field v-model="name" :error-messages="nameErrors" :counter="10" label="Name" required
-                        >
+
+                <form>
+                    <v-text-field v-model="name"  label="Name" required>
                     </v-text-field>
-                    <v-text-field v-model="email" :error-messages="emailErrors" label="E-mail" required
-                        ></v-text-field>
-                    <v-select v-model="select" :items="items" :error-messages="selectErrors" label="Item" required
-                        ></v-select>
-                    <v-checkbox v-model="checkbox" :error-messages="checkboxErrors" label="Do you agree?" required
-                        ></v-checkbox>
+                    <v-text-field v-model="email" label="E-mail" required></v-text-field>
+                    <v-text-field v-model="phoneNumber"  label="Phone Number" required></v-text-field>
+                    <v-select v-model="select" :items="items" label="Availability" required></v-select>
+                    <v-checkbox v-model="checkbox" label="Do you agree?" required></v-checkbox>
 
                     <v-btn class="mr-4" @click="submit">
                         submit
@@ -75,31 +72,36 @@
                         clear
                     </v-btn>
                 </form>
-            </v-form>
+            </v-form> -->
+            <ContactForm>
+
+            </ContactForm>
         </div>
     </v-container>
 </template>
 
 <script>
+import ContactForm from '~/components/ContactForm.vue';
 // import RegForm from '~/components/RegForm.vue';
 export default {
     name: 'Contact',
-    // components:{RegForm},
+    components:{ContactForm},
     data() {
         return {
             headerTitle: 'Internship League',
             srcBanner: 'http://laresolution.ca/internshipleague/wp-content/uploads/2023/04/13762396_5330999-scaled.jpg',
             title: 'CONTACT US !',
-            textBtnJoinUs: 'Join now',
             seen: false,
-            schedule: 'Write to us and schedule a Call-back '
+            schedule: 'For more details - click to schedule a Call-back '
         }
     },
     methods: {
         affiche() {
             this.seen = true
         }
-    }
+    },
+    
+    
 }
 </script>
 
