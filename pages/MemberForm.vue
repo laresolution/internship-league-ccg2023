@@ -1,10 +1,10 @@
 <template>
     <v-container> 
       <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
-      <MemberSection2 v-for="member in members" :key="member.id" v-model="member.data"></MemberSection2>
-    
+      <MemberSection2 v-for="member in members" :key="member.id" :value="member"></MemberSection2>
+
         <div>  
-        <ul>
+        <ul v-show="false">
             <li v-for="member in members" :key="member.id">
                 {{member.name}}   
                 {{member.email}}
@@ -29,7 +29,7 @@ import MemberSection2 from '~/components/MemberSection2.vue';
         
 export default {
     name: "MemberForm",
-    components: {   AddDialog, MemberSection2},
+    components: {AddDialog, MemberSection2},
     layout: "newlayout2",
     data() {
         return {
