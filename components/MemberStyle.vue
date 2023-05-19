@@ -25,15 +25,13 @@
         </v-row>
 
         <v-row>
-        <!-- <v-col cols="4">          
-            <svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon>         
-        </v-col> -->
+
+       
+
         <v-col cols="4">
-          <v-btn  icon="mdi-linkedin"></v-btn>
-        </v-col>
-        <v-col cols="4">
-            <v-btn fab color="primary"><svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon> </v-btn>          
-                    
+            <v-btn fab color="primary" href="https://www.linkedin.com/in/vitaly-savin-710097252">
+              <svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon>
+             </v-btn>                    
         </v-col>
         <v-col cols="4">
             <v-btn
@@ -74,6 +72,8 @@
   </template>
 
   <script>
+  
+  
   import SvgIcon from '@jamescoyle/vue-icon';
   import { mdiLinkedin } from '@mdi/js';
   import vModelObjectMixin from '~/mixins/vModelObjectMixin';
@@ -85,8 +85,9 @@
   mixins: [vModelObjectMixin],
   data() {
     return {
-       path: mdiLinkedin,
-       isEditing: false
+        
+        path: mdiLinkedin,
+        isEditing: false
     }
   },
   computed: {
