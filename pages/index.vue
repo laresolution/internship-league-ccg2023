@@ -50,8 +50,7 @@
             </v-img>
         </v-row>
         <v-row no-gutters justify="center" style="height: 5rem; background-color: black;">
-             
-            <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
+             <!--  --> 
         </v-row>
         <v-row no-gutters>
             <v-img
@@ -82,14 +81,7 @@ export default {
             currentMember: null // Initialize currentMember 
         } 
     },
-    methods: {
-      handleMemberSaved(member) { 
-        // Access the saved member information here
-        this.currentMember = member;
-        console.log('Member info by emit:'); 
-        console.log(this.currentMember);
-      }
-    }
+    methods: {  }
 }
 </script>
 
