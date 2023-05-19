@@ -59,11 +59,11 @@ const generateNewMember = () => {
         email: '',
         phone: '',
         studentNumber: '',
-        programNumber: '',
-        institution: '',
-        supervisorName: '',
-        startDate:'',
-        endDate:''  
+        programNumber: '9709',
+        institution: 'G.Godin',
+        supervisorName: 'Alex Vinet',
+        startDate:'2023-05-19',
+        endDate:'2023-05-31'  
     }
 }
 export default {
