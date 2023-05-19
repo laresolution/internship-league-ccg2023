@@ -26,8 +26,12 @@
 
         <v-row>
         <v-col cols="6">          
-            <svg-icon type="mdi" :path="path" size="55"></svg-icon>         
+            <svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon>         
         </v-col>
+        <!-- <v-col cols="4">
+            <v-btn><svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon> </v-btn>          
+                    
+        </v-col> -->
         <v-col cols="6">
             <v-btn
                     class="mx-2"
