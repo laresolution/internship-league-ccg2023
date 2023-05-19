@@ -12,7 +12,7 @@
   
           <v-col v-show="!isEditing" cols="9">
             
-                <div class="text-h2"><!-- {{valueModel.name}} --></div>
+                <div class="text-h2">{{valueModel.name}} </div>
                 <div class="text-h3"> {{member.title}}</div>
                 <div class="text-body-2">{{member.quote}} </div>
                 <div class="text-subtitle-2">Strengths</div>
@@ -43,7 +43,7 @@
       </v-row>
 
       <v-col v-show="isEditing">
-                <v-text-field ></v-text-field>
+                <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
                 <div class="text-h3">{{member.title}} </div>
                 <div class="text-body-2">{{member.quote}} </div>
                 <div class="text-subtitle-2">Strengths</div>
@@ -69,9 +69,10 @@
   <script>
   import SvgIcon from '@jamescoyle/vue-icon';
   import { mdiLinkedin } from '@mdi/js';
- // import vModelObjectMixin from '~/mixins/vModelObjectMixin';
+  import vModelObjectMixin from '~/mixins/vModelObjectMixin';
   export default {
   name: "MemberStyle",
+  mixins: [vModelObjectMixin],
   components: {
     SvgIcon
   },
