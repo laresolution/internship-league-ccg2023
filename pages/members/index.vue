@@ -1,24 +1,54 @@
 <template>
-    <div>
-         
-        <AddButton @click="addRandomMember"></AddButton>
-        <ul>
-            <li v-for="member in members" :key="member.id" >
-                <router-link :to="`/members/${member.id}`">
-                    {{member.name}}
-                </router-link>
+        <v-container> 
+      <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
+      <MemberSection2 v-for="member in members" :key="member.id" :value="member"></MemberSection2>
+
+<!--         <div>  
+        <ul v-show="false">
+            <li v-for="member in members" :key="member.id">
+                {{member.name}}   
+                {{member.email}}
+                {{member.phone}}   
+                {{member.studentNumber}}
+                {{member.programNumber}}   
+                {{member.institution}}
+                {{member.supervisorName}}   
+                {{member.startDate}}
+                {{member.endDate}} 
             </li>
-        </ul>
-    </div>
+        </ul>  
+    </div> -->
+    
+<!--     <div>
+         
+         <AddButton @click="addRandomMember"></AddButton>
+         <ul>
+             <li v-for="member in members" :key="member.id" >
+                 <router-link :to="`/members/${member.id}`">
+                     {{member.name}}
+                 </router-link>
+             </li>
+         </ul>
+     </div> -->
+    </v-container> 
+ 
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import AddButton from '~/components/buttons/AddButton.vue';
-
+/* import AddButton from '~/components/buttons/AddButton.vue'; */
+import AddDialog from '~/components/AddDialog.vue';
+import MemberSection2 from '~/components/MemberSection2.vue';
+ 
 export default {
     name: "Members",
-    components: { AddButton },
+    components: { /* AddButton,  */AddDialog, MemberSection2 },
+    layout: "newlayout2",
+    data() {
+        return {
+            formShown: false, 
+        }
+    },
     computed: {
         ...mapGetters('members', [
             'members',
@@ -40,8 +70,25 @@ export default {
                 name: `New Member (${id})`,
                 
             })
-        }
+        },
+        handleMemberSaved(member) { 
+        // Access the saved member information here
+        const id = Math.ceil(Math.random() * 100000)
+        this.addMember({
+            id,
+                name: member.name, 
+                email: member.email,
+                phone: member.phone,
+                studentNumber: member.studentNumber,
+                programNumber: member.programNumber,
+                institution: member.institution,
+                supervisorName: member.supervisorName,
+                startDate:member.startDate,
+                endDate:member.endDate,
+        })  
+      },
     },
+  
     beforeRouteEnter(to, from, next) {
         next(vm => {
             vm.loadMembers()
