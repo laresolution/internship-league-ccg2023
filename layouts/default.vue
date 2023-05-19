@@ -92,7 +92,7 @@ export default {
           { title: 'Join Us', url: '/#regform' },
           { title: 'Hire Us', url: '/hire' },
           { title: 'Members', url: '/members' },
-          { title: 'Contact', url: '/contact' }
+          { title: 'Contact', url: '/contactpage' }
         ],
         right: null,
       }
