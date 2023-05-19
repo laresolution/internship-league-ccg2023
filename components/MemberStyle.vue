@@ -25,14 +25,17 @@
         </v-row>
 
         <v-row>
-        <v-col cols="6">          
+        <!-- <v-col cols="4">          
             <svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon>         
-        </v-col>
-        <!-- <v-col cols="4">
-            <v-btn><svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon> </v-btn>          
-                    
         </v-col> -->
-        <v-col cols="6">
+        <v-col cols="4">
+          <v-btn  icon="mdi-linkedin"></v-btn>
+        </v-col>
+        <v-col cols="4">
+            <v-btn fab color="primary"><svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon> </v-btn>          
+                    
+        </v-col>
+        <v-col cols="4">
             <v-btn
                     class="mx-2"
                     fab
@@ -75,11 +78,11 @@
   import { mdiLinkedin } from '@mdi/js';
   import vModelObjectMixin from '~/mixins/vModelObjectMixin';
   export default {
-  name: "MemberStyle",
-  mixins: [vModelObjectMixin],
+  name: "MemberStyle",  
   components: {
     SvgIcon
   },
+  mixins: [vModelObjectMixin],
   data() {
     return {
        path: mdiLinkedin,
