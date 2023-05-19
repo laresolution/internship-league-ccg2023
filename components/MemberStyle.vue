@@ -24,9 +24,9 @@
           </v-col>
         </v-row>
 
-        <v-row no-gutters >
+        <v-row>
         <v-col cols="6">          
-            <svg-icon type="mdi" :path="path"></svg-icon>         
+            <svg-icon type="mdi" :path="path" size="55"></svg-icon>         
         </v-col>
         <v-col cols="6">
             <v-btn
