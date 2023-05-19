@@ -2,6 +2,7 @@
     <div> 
         <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
         
+        <MemberSection2 v-for="member in members" :key="member.id" v-model="member.data"></MemberSection2>
         <ul>
             <li v-for="member in members" :key="member.id">
                 {{member.name}}   
@@ -14,7 +15,7 @@
                 {{member.startDate}}
                 {{member.endDate}} 
             </li>
-        </ul>
+        </ul>  
     </div>
 </template>
 
@@ -22,9 +23,11 @@
 import { mapGetters, mapActions } from 'vuex'
  
 import AddDialog from '~/components/AddDialog.vue';
+import MemberSection2 from '~/components/MemberSection2.vue';
+
 export default {
     name: "MemberForm",
-    components: { AddDialog},
+    components: { AddDialog, MemberSection2},
     layout: "newlayout2",
     data() {
         return {
