@@ -50,7 +50,20 @@
             </v-img>
         </v-row>
         <v-row no-gutters justify="center" style="height: 5rem; background-color: black;">
-             <!--  --> 
+             
+
+
+        <v-btn 
+            v-bind="attrs"
+            v-on="on"
+
+            elevation="2" 
+            style="background-color: #FFBB01; color:rgb(224, 43, 32); font-size:20px; text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4); letter-spacing:4px; font-weight:700; padding: 24px 20px;">
+             
+            <a href="/memberForm" >{{ textBtnJoinUs }}</a>
+            
+          </v-btn>
+          
         </v-row>
         <v-row no-gutters>
             <v-img
@@ -68,10 +81,9 @@
 
 <script>
 
-import AddDialog from '~/components/AddDialog.vue';
+ 
 export default {
-    name: 'Home',
-    components: {  AddDialog },
+    name: 'Home', 
     data() {
         return {
             headerTitle: 'Internship League',
