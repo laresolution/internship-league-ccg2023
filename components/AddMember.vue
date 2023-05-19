@@ -76,11 +76,11 @@ export default {
 
             nameRules: [
                 v => !!v || 'Name is required',
-                v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+                v => (v && v.length <= 50) || 'Name must be less than 10 characters',
             ],
             phoneRules: [
                 v => !!v || 'Phone number is required',
-                v => (v && v.length >= 9) || 'Phone number needs to be at least 9 digits.',
+                v => (v && v.length >= 10) || 'Phone number needs to be at least 10 digits.',
                 v => /^\d+$/.test(v) || 'Phone number must contain only numbers.',
             ],
       
