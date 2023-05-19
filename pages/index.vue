@@ -50,7 +50,8 @@
             </v-img>
         </v-row>
         <v-row no-gutters justify="center" style="height: 5rem; background-color: black;">
-            <AddDialogVue></AddDialogVue> 
+             
+            <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
         </v-row>
         <v-row no-gutters>
             <v-img
@@ -68,17 +69,26 @@
 
 <script>
 
-import AddDialogVue from '~/components/AddDialog.vue';
+import AddDialog from '~/components/AddDialog.vue';
 export default {
     name: 'Home',
-    components: {  AddDialogVue },
+    components: {  AddDialog },
     data() {
         return {
             headerTitle: 'Internship League',
             altBanner: 'Banner Join Us',
             invitationText: 'Live this collaborative experience by joining the internship league! Join like minded individuals who are as excited as you are to begin practicing their craft. Acquire the experience needed to close the junior gap and get hired by showing your work.',
-            textBtnJoinUs: 'Join now'
-        }
+            textBtnJoinUs: 'Join now',
+            currentMember: null // Initialize currentMember 
+        } 
+    },
+    methods: {
+      handleMemberSaved(member) { 
+        // Access the saved member information here
+        this.currentMember = member;
+        console.log('Member info by emit:'); 
+        console.log(this.currentMember);
+      }
     }
 }
 </script>
