@@ -64,7 +64,7 @@ import AddMember from './AddMember.vue';
     this.currentMember = currentMember; 
     // Emit an event to send the member information to the parent component
     this.$emit('member-saved', currentMember);
-    this.$router.push("/MemberForm");
+    this.$router.push("/members");
     this.dialog = false
     console.log("AddDialog:")
     console.log(this.currentMember)
