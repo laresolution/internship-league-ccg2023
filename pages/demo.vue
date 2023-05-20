@@ -1,80 +1,84 @@
 <template>
-        <v-container>
-            <div>
-                <router-link to="MemberForm">Member Form</router-link> 
-                {{ currentMember.id }}  
-                <AddButton @click="addRandomMember"></AddButton>
-                <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
-                 
-                
-                <ul>
-                    <li v-for="member in members" :key="member.id">
-                        {{member.name}}   
-                        {{member.email}}
-                        {{member.phone}}   
-                        {{member.studentNumber}}
-                        {{member.programNumber}}   
-                        {{member.institution}}
-                        {{member.supervisorName}}   
-                        {{member.startDate}}
-                        {{member.endDate}} 
-                    </li>
-                </ul>
-            </div>
-            </v-container>
-        </template>
-        
-        <script>
-        import { mapGetters, mapActions } from 'vuex'
-        import AddButton from '~/components/buttons/AddButton.vue';
-         
-        import AddDialog  from '~/components/AddDialog.vue';
-        export default {
-            name: "MemberForm",
-            components: { AddButton,  AddDialog },
-            layout: "newlayout2",
-            data() {
-                return {
-                    isFormShown: false,
-                    items: [
-                        {
-                            name: "Empty Member"
-                        }
-                    ]
-                };
-            },
-            computed: {
-                ...mapGetters('members', [
-                    'members',
-                    'currentMember'
-                ]),
-                regularComputedProperty () {
-                    return true
+    <div>
+        <AddButton @click="showAddForm"></AddButton>
+        <v-card v-if="formShown">
+            <v-card-title>Add new member</v-card-title>
+            <v-card-text>
+                <AddMember @created="memberCreated" @cancel="hideForm"></AddMember>
+            </v-card-text>
+        </v-card>
+        <MemberSection v-for="member in members" :key="member.id" v-model="member.data"></MemberSection>
+    </div>
+</template>
+
+<script>
+import AddMember from '~/components/AddMember.vue';
+import MemberSection from '~/components/MemberSection.vue';
+import AddButton from '~/components/buttons/AddButton.vue';
+
+export default {
+    name: "Members",
+    components: { MemberSection, AddButton, AddMember },
+    data() {
+        return {
+            formShown: false,
+            members: 
+            [{
+                id: 1,
+                data: {
+                    id: 1,
+                    imgSrc: 'https://laresolution.ca/internshipleague/wp-content/uploads/2023/04/vitaly.jpg',
+                    name: 'Vitaly Savin',
+                    title: 'Web Developer',
+                    quote: 'Recently graduated in Web Development and with a solid theoretical base, I am able to learn quickly from Senior Developers and by myself. Strive to solve more complex problems in the most efficient way possible, both as a team and individually.',
+                    strengths: 'I work efficiently in a team and have great autonomy in my learning. Creative and with a good ability to synthetize, I can accurately and quickly accomplish tasks to enhance your business operations',
+                    likes: 'I enjoy running, skiing and learning new things.'
                 }
             },
-            methods: {
-                ...mapActions('members', [
-                    'addMember'
-                ]),
-                addRandomMember() {
-                    const id = Math.ceil(Math.random() * 100000)
-                     
-                    this.addMember({
-                        id,
-                        name: `name(${id})`, 
-                        email: 'philip@gmail.com',
-                        phone: `phonet${id}`,
-                        studentNumber: `student${id}`,
-                        programNumber: `program${id}`,
-                        institution: `student${id}`,
-                        supervisorName: `institution${id}`,
-                        startDate: `startDate${id}`,
-                        endDate: `endDate${id}`,
-                    })
+            { 
+                id: 2,
+                data: {
+                    id: 2,
+                    imgSrc: 'https://laresolution.ca/internshipleague/wp-content/uploads/2023/04/vitaly.jpg',
+                    name: 'Vitaly Savin Jr',
+                    title: 'Web Developer',
+                    quote: 'Recently graduated in Web Development and with a solid theoretical base, I am able to learn quickly from Senior Developers and by myself. Strive to solve more complex problems in the most efficient way possible, both as a team and individually.',
+                    strengths: 'I work efficiently in a team and have great autonomy in my learning. Creative and with a good ability to synthetize, I can accurately and quickly accomplish tasks to enhance your business operations',
+                    likes: 'I enjoy running, skiing and learning new things.'
                 }
-            }
+            },
+            { 
+                id: 3,
+                data: {
+                    id: 3,
+                    imgSrc: 'https://laresolution.ca/internshipleague/wp-content/uploads/2023/04/vitaly.jpg',
+                    name: 'Vitaly Savin Sr',
+                    title: 'Web Developer',
+                    quote: 'Recently graduated in Web Development and with a solid theoretical base, I am able to learn quickly from Senior Developers and by myself. Strive to solve more complex problems in the most efficient way possible, both as a team and individually.',
+                    strengths: 'I work efficiently in a team and have great autonomy in my learning. Creative and with a good ability to synthetize, I can accurately and quickly accomplish tasks to enhance your business operations',
+                    likes: 'I enjoy running, skiing and learning new things.'
+                }
+            }]
         }
-        </script>
-        
-        <style scoped>
-        </style> 
+    },
+    methods: {
+        showAddForm() {
+            this.formShown = true
+        },
+        memberCreated(newMember) {
+            const newId = Math.ceil(Math.random() * 50000)
+            newMember.id = newId
+            this.members.push({
+                id: newId,
+                data: newMember
+            })
+            this.hideForm()
+        },
+        hideForm () {
+            this.formShown = false
+        }
+    }
+}
+</script>
+
+<style scoped></style>
