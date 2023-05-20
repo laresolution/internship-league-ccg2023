@@ -5,7 +5,7 @@
             <v-col v-show="!isEditing">
                 <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
   
-                <div class="text-body-1">{{member.id}} </div>
+                <!-- <div class="text-body-1">{{member.name}} </div> -->
                 <div class="text-body-1">{{member.email}} </div>
                 <div class="text-body-1">{{member.phone}}  </div>   
                 <div class="text-body-1">{{member.studentNumber}} </div>
