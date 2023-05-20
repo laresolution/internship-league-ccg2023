@@ -8,7 +8,9 @@
                     </v-text-field>
                     <v-text-field v-model="email" label="E-mail" required></v-text-field>
                     <v-text-field v-model="phoneNumber"  label="Phone Number" required></v-text-field>
-                    <v-select v-model="select" :items="items" label="Availability" required></v-select>
+                    <v-select v-model="select" :items="items" label="Availability" required>
+                        <v-option v-for="item in items" :key="item">{{ item }}</v-option>
+                    </v-select>
                     <v-checkbox v-model="checkbox" label="Do you agree?" required></v-checkbox>
 
                     <v-btn class="mr-4" @click="submit">
@@ -40,7 +42,7 @@ export default {
       submit () {
         // this.$v.$touch()
         
-        alert(this.name.substring(0, this.name.indexOf(' '))+" ,votre message a été envoyé ! ");
+        alert(this.name.substring(0, this.name.indexOf(' '))+" ,your request was sent ! we will call you in the "+ this.select+" ,as soon as possible, during the week.");
       },
       clear () {
         // this.$v.$reset()
