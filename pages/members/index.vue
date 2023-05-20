@@ -1,48 +1,19 @@
-<template>
-        <v-container> 
+<template> 
+    <v-container> 
+    <router-link :to="`/`">Home</router-link> 
       <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
-      <MemberSection2 v-for="member in members" :key="member.id" :value="member"></MemberSection2>
-
-<!--         <div>  
-        <ul v-show="false">
-            <li v-for="member in members" :key="member.id">
-                {{member.name}}   
-                {{member.email}}
-                {{member.phone}}   
-                {{member.studentNumber}}
-                {{member.programNumber}}   
-                {{member.institution}}
-                {{member.supervisorName}}   
-                {{member.startDate}}
-                {{member.endDate}} 
-            </li>
-        </ul>  
-    </div> -->
-    
-<!--     <div>
-         
-         <AddButton @click="addRandomMember"></AddButton>
-         <ul>
-             <li v-for="member in members" :key="member.id" >
-                 <router-link :to="`/members/${member.id}`">
-                     {{member.name}}
-                 </router-link>
-             </li>
-         </ul>
-     </div> -->
-    </v-container> 
- 
+      <MemberSection2 v-for="member in members" :key="member.id" :value="member"></MemberSection2> 
+    </v-container>  
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-/* import AddButton from '~/components/buttons/AddButton.vue'; */
+import { mapGetters, mapActions } from 'vuex'; 
 import AddDialog from '~/components/AddDialog.vue';
 import MemberSection2 from '~/components/MemberSection2.vue';
  
 export default {
     name: "Members",
-    components: { /* AddButton,  */AddDialog, MemberSection2 },
+    components: {AddDialog, MemberSection2 },
     layout: "newlayout2",
     data() {
         return {
@@ -54,23 +25,15 @@ export default {
             'members',
             'currentMember'
         ]),
-        regularComputedProperty () {
+        regularComputedProperty () { 
             return true
         }
     },
+
+    
+
     methods: {
-        ...mapActions('members', [
-            'loadMembers',
-            'addMember'
-        ]),
-        addRandomMember() {
-            const id = Math.ceil(Math.random() * 100000)
-            this.addMember({
-                id,
-                name: `New Member (${id})`,
-                
-            })
-        },
+        ...mapActions('members', [ 'loadMembers','addMember' ]),  
         handleMemberSaved(member) { 
         // Access the saved member information here
         const id = Math.ceil(Math.random() * 100000)
@@ -86,12 +49,13 @@ export default {
                 startDate:member.startDate,
                 endDate:member.endDate,
         })  
-      },
-    },
+      }, 
+    }, 
+    
   
     beforeRouteEnter(to, from, next) {
-        next(vm => {
-            vm.loadMembers()
+        next(vm => { 
+         vm.loadMembers() ;  
         })
     }
 }
