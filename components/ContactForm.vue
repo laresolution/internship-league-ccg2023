@@ -4,7 +4,7 @@
             <v-form>
 
                 <form>
-                    <v-text-field v-model="name"  label="Name" required>
+                    <v-text-field v-model="name"  label="First and last name" required>
                     </v-text-field>
                     <v-text-field v-model="email" label="E-mail" required></v-text-field>
                     <v-text-field v-model="phoneNumber"  label="Phone Number" required></v-text-field>
