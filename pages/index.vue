@@ -60,7 +60,7 @@
             elevation="2" 
             style="background-color: #FFBB01; color:rgb(224, 43, 32); font-size:20px; text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4); letter-spacing:4px; font-weight:700; padding: 24px 20px;">
              
-            <a href="/memberForm" >{{ textBtnJoinUs }}</a>
+            <a href="/members" class="no-underline" >{{ textBtnJoinUs }}</a>
             
           </v-btn>
           
@@ -97,4 +97,10 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.no-underline {
+  text-decoration: none;
+  color: red;
+}
+
+</style>
