@@ -55,15 +55,16 @@ import SaveButton from '../components/buttons/SaveButton.vue'
 
 const generateNewMember = () => {
     return {
+        id:'',
         name: '',
         email: '',
         phone: '',
         studentNumber: '',
-        programNumber: '9709',
-        institution: 'G.Godin',
-        supervisorName: 'Alex Vinet',
-        startDate:'2023-05-19',
-        endDate:'2023-05-31'  
+        programNumber: '',
+        institution: '',
+        supervisorName: '',
+        startDate:'',
+        endDate:''  
     }
 }
 export default {
