@@ -44,7 +44,7 @@ const state = () => ({
 const mutations = {
     MEMBER_ADDING(state, tempMember) {
         const id = tempMember.id;
-        /* console.log(`member ${id} adding`) */
+        console.log(`member ${id} adding`)
         set(state.members, id, { ...tempMember, loading: true })
     },
     MEMBER_ADDED(state, memberFromDatabase) {
@@ -52,7 +52,7 @@ const mutations = {
         if (state.members[id]) {
             state.members[id].loading = false;
         }
-        /* console.log(`member ${id} added`) */
+        console.log(`member ${id} added`)
     },
     MEMBER_ADD_FAILED(state, member) {
         const id = member.id;
@@ -61,21 +61,16 @@ const mutations = {
     },
     MEMBER_LOADED(state, member) {
         const id = member.id;
-       /*  console.log(`member ${id} adding`) */
+        console.log(`member ${id} adding`)
         set(state.members, id, member)
-    },
-    CLEAR_MEMBERS(state) {
-        state.members = {}; 
-      },  
+    } 
 }
 
 // Actions = public methods
 // Getters = public properties
 
 const actions = {
-    async loadMembers({ commit }) { 
-        commit('CLEAR_MEMBERS'); // Clear existing members
-         
+    async loadMembers({ commit }) {  
         const querySnapshot = await getDocs(members);
         querySnapshot.forEach((doc) => {
           const member = { ...doc.data(), id: doc.id}
