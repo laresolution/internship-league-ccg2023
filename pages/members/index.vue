@@ -2,7 +2,8 @@
     <v-container> 
     <router-link :to="`/`">Home</router-link> 
       <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
-      <MemberSection2 v-for="member in members" :key="member.id" :value="member"></MemberSection2> 
+      <!-- <MemberSection2 :value="singleMember" v-if="singleMember" :key="singleMember.id"></MemberSection2> --> 
+      <MemberSection2 v-for="member in members" :key="member.id" :value="member"></MemberSection2>     
     </v-container>  
 </template>
 
@@ -17,20 +18,23 @@ export default {
     layout: "newlayout2",
     data() {
         return {
-            formShown: false, 
+            formShown: false,  
         }
+        
     },
     computed: {
         ...mapGetters('members', [
             'members',
             'currentMember'
         ]),
+        /* singleMember() {
+           return this.members.find(member => member.id === 'your-member-id');
+        }, */
         regularComputedProperty () { 
             return true
-        }
-    },
-
-    
+        },
+         
+    }, 
 
     methods: {
         ...mapActions('members', [ 'loadMembers','addMember' ]),  
@@ -38,7 +42,8 @@ export default {
         // Access the saved member information here
         const id = Math.ceil(Math.random() * 100000)
         this.addMember({
-            id,
+              id,
+                
                 name: member.name, 
                 email: member.email,
                 phone: member.phone,
