@@ -1,11 +1,9 @@
 <template>
     <v-container>
-        <v-row>
-            <v-spacer></v-spacer> 
-            <v-col v-show="!isEditing">
-                <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
-  
-                <!-- <div class="text-body-1">{{member.name}} </div> -->
+        <v-row> 
+            <v-col v-show="!isEditing">  
+                <div class="text-body-1">{{member.id}} </div> 
+                <div class="text-body-1">{{member.name}} </div>  
                 <div class="text-body-1">{{member.email}} </div>
                 <div class="text-body-1">{{member.phone}}  </div>   
                 <div class="text-body-1">{{member.studentNumber}} </div>
@@ -25,8 +23,9 @@
                     </v-icon>
                 </v-btn>
             </v-col>
-            <v-col v-show="isEditing">
-                <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
+            <v-spacer></v-spacer> 
+            <v-col v-show="isEditing"> 
+                <div class="text-body-1" label="Id">{{member.id}} </div> 
                 <v-text-field v-model="valueModel.name">{{member.name}}</v-text-field>
                 <v-text-field v-model="valueModel.email">{{member.email}}</v-text-field> 
                 <v-text-field v-model="valueModel.phone">{{member.phone}}</v-text-field>
@@ -37,7 +36,7 @@
                 <v-text-field v-model="valueModel.startDate">{{member.startDate}}</v-text-field> 
                 <v-text-field v-model="valueModel.endDate">{{member.endDate}}</v-text-field> 
   
-                <input >
+                
                 <v-btn
                     class="mx-2"
                     fab
@@ -66,9 +65,7 @@ export default {
         }
     },
     computed: {
-        member() {
-            console.log("the form data:")
-            console.log(this.value);
+        member() {  
             return this.value || {};
         }
     },
