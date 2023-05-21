@@ -2,12 +2,12 @@
     <v-container> 
     <router-link :to="`/`">Home</router-link> 
       <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
-      <!-- <MemberSection2 :value="singleMember" v-if="singleMember" :key="singleMember.id"></MemberSection2> --> 
       <MemberSection2 v-for="member in members" :key="member.id" :value="member"></MemberSection2>     
     </v-container>  
 </template>
 
 <script>
+import { v4 as uuidv4 } from 'uuid';
 import { mapGetters, mapActions } from 'vuex'; 
 import AddDialog from '~/components/AddDialog.vue';
 import MemberSection2 from '~/components/MemberSection2.vue';
@@ -26,10 +26,7 @@ export default {
         ...mapGetters('members', [
             'members',
             'currentMember'
-        ]),
-        /* singleMember() {
-           return this.members.find(member => member.id === 'your-member-id');
-        }, */
+        ]), 
         regularComputedProperty () { 
             return true
         },
@@ -40,7 +37,7 @@ export default {
         ...mapActions('members', [ 'loadMembers','addMember' ]),  
         handleMemberSaved(member) { 
         // Access the saved member information here
-        const id = Math.ceil(Math.random() * 100000)
+        const id = uuidv4(); // Math.ceil(Math.random() * 100000)
         this.addMember({
               id,
                 
@@ -55,8 +52,7 @@ export default {
                 endDate:member.endDate,
         })  
       }, 
-    }, 
-    
+    },  
   
     beforeRouteEnter(to, from, next) {
         next(vm => { 
