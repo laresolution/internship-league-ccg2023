@@ -2,7 +2,7 @@
     <v-container> 
     <router-link :to="`/`">Home</router-link> 
       <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
-      <MemberSection2 v-for="member in members" :key="member.id" :value="member"></MemberSection2>     
+      <MemberSection2 v-for="member in members" :key="member.numero" :value="member"></MemberSection2>     
     </v-container>  
 </template>
 
@@ -37,10 +37,9 @@ export default {
         ...mapActions('members', [ 'loadMembers','addMember' ]),  
         handleMemberSaved(member) { 
         // Access the saved member information here
-        const id = uuidv4(); // Math.ceil(Math.random() * 100000)
-        this.addMember({
-              id,
-                
+        const numero = uuidv4(); // Math.ceil(Math.random() * 100000)
+        this.addMember({ 
+                numero, 
                 name: member.name, 
                 email: member.email,
                 phone: member.phone,
