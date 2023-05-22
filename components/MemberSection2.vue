@@ -1,8 +1,9 @@
 <template>
     <v-container>
         <v-row> 
-            <v-col v-show="!isEditing">  
-                <div class="text-body-1">{{member.id}} </div> 
+            <v-col v-show="!isEditing">
+                <div class="text-body-1" label="ID">{{member.id}} </div>   
+                <div class="text-body-1">{{member.numero}} </div> 
                 <div class="text-body-1">{{member.name}} </div>  
                 <div class="text-body-1">{{member.email}} </div>
                 <div class="text-body-1">{{member.phone}}  </div>   
@@ -25,7 +26,8 @@
             </v-col>
             <v-spacer></v-spacer> 
             <v-col v-show="isEditing"> 
-                <div class="text-body-1" label="Id">{{member.id}} </div> 
+                <div class="text-body-1" label="ID">{{member.id}} </div>   
+                <div class="text-body-1">{{member.numero}} </div> 
                 <v-text-field v-model="valueModel.name">{{member.name}}</v-text-field>
                 <v-text-field v-model="valueModel.email">{{member.email}}</v-text-field> 
                 <v-text-field v-model="valueModel.phone">{{member.phone}}</v-text-field>
@@ -61,7 +63,8 @@ export default {
     mixins: [vModelObjectMixin],
     data() {
         return {
-            isEditing: false
+            isEditing: false,
+            valueModel: {} // Define the valueModel object
         }
     },
     computed: {
