@@ -83,7 +83,7 @@ const actions = {
             console.error("Error adding document: ", e);
           }
     },
-    async updateUser({ commit }, user) {
+    async updateUser({ commit }, user) { 
         try {
           const docRef = collection(db, "users").doc(user.id);
           await updateDoc(docRef, user);
