@@ -4,7 +4,7 @@
         <p class="text-center titre display-1">
             {{ title }}
         </p> 
-        <h3 class="text-center citation">(   Let the experience starts from here ...)</h3><br>
+        <h3 class="text-center citation"  style="color: rgb(78, 70, 176)" >(   Let the experience starts from here ...)</h3><br>
 
         <div class="row">
             <div class="col">

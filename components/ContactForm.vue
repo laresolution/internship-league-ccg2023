@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-divider :thickness="13" class="border-opacity-100" color="orange"></v-divider>
+        <v-divider :thickness="13" class="border-opacity-100" color="blue"></v-divider>
             <v-form>
 
                 <form>
@@ -42,7 +42,9 @@ export default {
       submit () {
         // this.$v.$touch()
         
-        alert(this.name.substring(0, this.name.indexOf(' '))+" ,your request was sent ! we will call you in the "+ this.select+" ,as soon as possible, during the week.");
+        alert(this.name+" ,your request was sent ! we will call you in the "+ this.select+" ,as soon as possible, during the week.");
+        // alert(this.name.substring(0, this.name.indexOf(' '))+" ,your request was sent ! we will call you in the "+ this.select+" ,as soon as possible, during the week.");
+        this.clear();
       },
       clear () {
         // this.$v.$reset()
