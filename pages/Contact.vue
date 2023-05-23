@@ -4,7 +4,7 @@
         <p class="text-center titre display-1">
             {{ title }}
         </p> 
-        <h3 class="text-center citation"  style="color: rgb(78, 70, 176)" >(   Let the experience starts from here ...)</h3><br>
+        <h3 class="text-center citation"  style="color: rgb(23,84,78)" >(   Let the experience starts from here ...)</h3><br>
 
         <div class="row">
             <div class="col">
@@ -12,7 +12,7 @@
                     <v-img src="./img/joinus.jpg" height="200px" cover></v-img>
 
                     <v-card-title>
-                        <h3 style="color: lavender;">Join Us</h3>
+                        <h3 style="color: rgb(111,233,146);">Join Us</h3>
                     </v-card-title>
 
                     <v-card-subtitle>
@@ -30,7 +30,7 @@
                     <v-img src="./img/opening-web-616x308px.jpg" height="200px" cover></v-img>
 
                     <v-card-title>
-                        <h3 style="color: lavender;">Opening Hours</h3>
+                        <h3 style="color: rgb(111,233,146);">Opening Hours</h3>
                     </v-card-title>
 
 
