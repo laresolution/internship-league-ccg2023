@@ -4,10 +4,10 @@
     <v-form>
 
       <form>
-        <v-text-field v-model="name" label="First and last name" required>
+        <v-text-field v-model="newCallback.name" label="First and last name" required>
         </v-text-field>
-        <v-text-field v-model="email" label="E-mail" required></v-text-field>
-        <v-text-field v-model="phoneNumber" label="Phone Number" required></v-text-field>
+        <v-text-field v-model="newCallback.email" label="E-mail" required></v-text-field>
+        <v-text-field v-model="newCallback.phoneNumber" label="Phone Number" required></v-text-field>
         <v-select v-model="select" :items="items" label="Availability" required>
           <v-option v-for="item in items" :key="item">{{ item }}</v-option>
         </v-select>
@@ -27,25 +27,39 @@
 <script>
 // import {collection, actions} from '@/store/users';
 // import '../store/users';
-export default {
-  name: 'ContactForm',
-  data: () => ({
+const generateNewCallback = () => {
+  return {
     name: '',
     email: '',
     phoneNumber: '',
-    select: null,
-    items: [
-      'Morning between 10:00am to 12:00pm',
-      'Afternoon between 13:00pm to 15:00pm',
-      'Both',
-    ],
-    checkbox: false,
-    message:'GOOD',
-  }),
+    time: ''
+  }
+}
+export default {
+  name: 'ContactForm',
+  data: ()=> {
+    return {
+      select: null,
+      items: [
+        'Morning between 10:00am to 12:00pm',
+        'Afternoon between 13:00pm to 15:00pm',
+        'Both'
+      ],
+      checkbox: false,
+      newCallback: generateNewCallback()
+
+    };
+
+
+  },
   methods: {
     submit() {
-      // this.$v.$touch()
-      this.saveData();
+
+      this.$emit("created", this.newCallback);
+      this.newCallback = generateNewCallback();
+      console.log(this.newCallback);
+      // this.dialog = false;
+      // this.saveData();
       if (this.select !== 'Both')
         alert(this.name + " ,your request was sent ! we will call you in the " + this.select + " ,as soon as possible, during the week.");
       else
@@ -61,11 +75,18 @@ export default {
       this.select = null
       this.checkbox = false
     },
-     async saveData() {
-//       const docRef = await actions(collection(db, "Callbacks"), {
-//   name: "Tokyo",
-//   country: "Japan"
-// })
+    saveData() {
+
+
+      // this.$emit("created", this.newCallback);
+      // this.newCallback = generateNewCallback();
+      // console.log(this.newCallback);
+      // this.dialog = false;
+
+      //       const docRef = await actions(collection(db, "Callbacks"), {
+      //   name: "Tokyo",
+      //   country: "Japan"
+      // })
       // if (this.name) {
       //   db.collection('Callbacks').add({
       //     email: this.email,
