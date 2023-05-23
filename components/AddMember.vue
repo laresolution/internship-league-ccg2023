@@ -28,7 +28,7 @@
                     <v-row justify="space-around"> 
                         <div>Internship start
                         <v-date-picker
-                        v-model="newMember.startDate" :min="minDate" :max="maxDate" required
+                        v-model="newMember.startDate" :min="minDate " :max="newMember.endDate || maxDate " required
                         color="green lighten-1"
                         ></v-date-picker></div>
 
@@ -36,7 +36,7 @@
                         <v-date-picker
                         v-model="newMember.endDate"
                         color="green lighten-1"
-                        header-color="primary"  :min="minDate" :max="maxDate"
+                        header-color="primary"  :min="newMember.startDate || minDate" :max="maxDate"
                         ></v-date-picker></div>
                         <div>
                         <SaveButton @click="saveMember"></SaveButton>
