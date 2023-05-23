@@ -2,7 +2,9 @@
     <v-container> 
     <router-link :to="`/`">Home</router-link> 
       <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
-      <MemberSection2 v-for="member in members" :key="member.numero" :value="member"></MemberSection2>     
+      <MemberSection2 v-for="member in members" :key="member.numero" :value="member"></MemberSection2> 
+          
+       
     </v-container>  
 </template>
 
