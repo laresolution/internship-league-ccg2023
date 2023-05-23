@@ -28,7 +28,7 @@
                     <v-row justify="space-around"> 
                         <div>Internship start
                         <v-date-picker
-                        v-model="newMember.startDate" :min="new Date().toISOString().split('T')[0]" required
+                        v-model="newMember.startDate" :min="minDate" :max="maxDate" required
                         color="green lighten-1"
                         ></v-date-picker></div>
 
@@ -36,7 +36,7 @@
                         <v-date-picker
                         v-model="newMember.endDate"
                         color="green lighten-1"
-                        header-color="primary" :max="maxDate"
+                        header-color="primary"  :min="minDate" :max="maxDate"
                         ></v-date-picker></div>
                         <div>
                         <SaveButton @click="saveMember"></SaveButton>
@@ -73,6 +73,7 @@ export default {
     data() {
         return { 
             maxDate: this.getMaxDate(),
+            minDate: this.getMinDate(), 
             newMember: generateNewMember(),
 
             nameRules: [
@@ -108,6 +109,11 @@ export default {
         getMaxDate() {
             const date = new Date();
             date.setFullYear(date.getFullYear() + 2);
+            return date.toISOString().substr(0, 10);
+        },
+        getMinDate() {
+            const date = new Date(); 
+            // date.setFullYear(date.toISOString().split('T')[0]);
             return date.toISOString().substr(0, 10);
         },
     } 
