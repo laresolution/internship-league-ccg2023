@@ -1,9 +1,10 @@
 <template>
-    <v-container fluid class="pt-16">
-
+    <v-container fluid class="pt-16 backG">
+        <!-- <h3 class="text-center citation">(   Let the experience starts from here ...)</h3><br> -->
         <p class="text-center titre display-1">
             {{ title }}
-        </p>
+        </p> 
+        <h3 class="text-center citation"  style="color: rgb(23,84,78)" >(   Let the experience starts from here ...)</h3><br>
 
         <div class="row">
             <div class="col">
@@ -11,7 +12,7 @@
                     <v-img src="./img/joinus.jpg" height="200px" cover></v-img>
 
                     <v-card-title>
-                        <h3 style="color: red;">Join Us</h3>
+                        <h3 style="color: rgb(111,233,146);">Join Us</h3>
                     </v-card-title>
 
                     <v-card-subtitle>
@@ -29,7 +30,7 @@
                     <v-img src="./img/opening-web-616x308px.jpg" height="200px" cover></v-img>
 
                     <v-card-title>
-                        <h3 style="color: red;">Opening Hours</h3>
+                        <h3 style="color: rgb(111,233,146);">Opening Hours</h3>
                     </v-card-title>
 
 
@@ -86,7 +87,7 @@ export default {
 
 <style scoped>
 .titre {
-    color: orange;
+    color: darkslategrey;
     text-decoration: underline;
 
 }
@@ -97,5 +98,15 @@ export default {
     margin-top: 10px;
 
 
+}
+.backG{
+    background-color: lavender;
+    height: 100%;
+}
+.citation{
+    color: darkslategrey;
+    letter-spacing: 2px;
+    font-style: italic;
+    font-weight:normal;
 }
 </style>

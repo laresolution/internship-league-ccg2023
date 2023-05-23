@@ -3,12 +3,12 @@
         <v-container>
             <v-row>
                 <v-col>
-                    <v-text-field label="Name" v-model="newMember.name"></v-text-field>
-                    <v-text-field label="Image URL" v-model="newMember.imgSrc"></v-text-field>
-                    <v-text-field label="Title" v-model="newMember.title"></v-text-field>
-                    <v-textarea label="Quote" v-model="newMember.quote"></v-textarea>
-                    <v-textarea label="Strengths" v-model="newMember.strengths"></v-textarea>
-                    <v-textarea label="Likes" v-model="newMember.likes"></v-textarea>
+                    <v-text-field v-model="newMember.name" label="Name" ></v-text-field>
+                    <v-text-field v-model="newMember.imgSrc" label="Image URL"></v-text-field>
+                    <v-text-field v-model="newMember.title" label="Title"></v-text-field>
+                    <v-textarea v-model="newMember.quote" label="Quote"></v-textarea>
+                    <v-textarea v-model="newMember.strengths" label="Strengths"></v-textarea>
+                    <v-textarea v-model="newMember.likes" label="Likes"></v-textarea>
                     <SaveButton @click="saveMember"></SaveButton>
                     <CancelButton @click="clear"></CancelButton>
                 </v-col>
