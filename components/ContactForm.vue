@@ -32,7 +32,7 @@ const generateNewCallback = () => {
     name: '',
     email: '',
     phoneNumber: '',
-    time: ''
+    availability: ''
   }
 }
 export default {

@@ -31,7 +31,7 @@ const state = () => ({
 const mutations = {
     CALLBACK_ADDING(state, tempCallback) {
         const id = tempCallback.id;
-        console.log(`callback ${id} adding`)
+        console.log(`Callback ${id} adding`)
         set(state.callbacks, id, { ...tempCallback, loading: true })
     },
     CALLBACK_ADDED(state, callbackIdFromDatabase) {
@@ -39,16 +39,16 @@ const mutations = {
         if (state.callbacks[id]) {
             state.callbacks[id].loading = false;
         }
-        console.log(`callback ${id} added`)
+        console.log(`Callback ${id} added`)
     },
     CALLBACK_ADD_FAILED(state, callback) {
         const id = callback.id;
-        console.log(`callback ${id} failed`)
+        console.log(`Callback ${id} failed`)
         delete state.callbacks[id]
     },
     CALLBACK_LOADED(state, callback) {
         const id = callback.id;
-        console.log(`callback ${id} adding`)
+        console.log(`Callback ${id} adding`)
         set(state.callbacks, id, callback)
     },
 }
