@@ -1,6 +1,6 @@
 <template>
     <v-container> 
-        {{ givenMemberId }}<br />    
+        <!-- {{ givenMemberId }}<br />    
         {{ givenMember.numero }}<br />
         {{ givenMember.name }}<br />
         {{ givenMember.email }}<br />
@@ -10,10 +10,10 @@
         {{ givenMember.institution }}<br /> 
         {{ givenMember.supervisorName }}<br />
         {{ givenMember.startDate }}<br />
-        {{ givenMember.endDate }}<br />  
+        {{ givenMember.endDate }}<br /> -->  
         <router-link to="../members">Back to list</router-link>
-          
-        <!-- <MemberSection2 v-if="isMemberIdValid" :key="member.id" :value="member"></MemberSection2> -->
+        <MemberSection2 :value="givenMember"></MemberSection2>  
+         
  
     </v-container> 
 </template>
