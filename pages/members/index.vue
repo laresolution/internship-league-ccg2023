@@ -3,8 +3,15 @@
     <router-link :to="`/`">Home</router-link> 
       <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
       <MemberSection2 v-for="member in members" :key="member.numero" :value="member"></MemberSection2> 
-          
-       
+      <ul>
+        <li v-for="member in members" :key="member.id">
+          <div>
+          <router-link :to="`/members/${member.id}`">
+            {{ member.id }} 
+          </router-link> 
+          </div> 
+        </li>
+      </ul>     
     </v-container>  
 </template>
 
@@ -38,8 +45,8 @@ export default {
     methods: {
         ...mapActions('members', [ 'loadMembers','addMember' ]),  
         handleMemberSaved(member) { 
-        // Access the saved member information here
-        const numero = uuidv4(); // Math.ceil(Math.random() * 100000)
+         
+        const numero = uuidv4();  
         this.addMember({ 
                 numero, 
                 name: member.name, 
