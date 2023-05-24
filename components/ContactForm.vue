@@ -2,7 +2,6 @@
   <div>
     <v-divider :thickness="13" class="border-opacity-100" color="blue"></v-divider>
     <v-form>
-
       <form>
         <v-text-field v-model="newCallback.name" label="First and last name" required>
         </v-text-field>
@@ -12,7 +11,6 @@
           <v-option v-for="item in items" :key="item">{{ item }}</v-option>
         </v-select>
         <v-checkbox v-model="checkbox" label="Are you ready?" required></v-checkbox>
-
         <v-btn class="mr-4 success" @click="submit">
           submit
         </v-btn>
@@ -25,8 +23,6 @@
 </template>
 
 <script>
-// import {collection, actions} from '@/store/users';
-// import '../store/users';
 const generateNewCallback = () => {
   return {
     name: '',
@@ -37,7 +33,7 @@ const generateNewCallback = () => {
 }
 export default {
   name: 'ContactForm',
-  data: ()=> {
+  data: () => {
     return {
       select: null,
       items: [
@@ -57,47 +53,13 @@ export default {
 
       this.$emit("created", this.newCallback);
       this.newCallback = generateNewCallback();
-      console.log(this.newCallback);
-      // this.dialog = false;
-      // this.saveData();
-      if (this.select !== 'Both')
-        alert("Your request was sent ! we will call you in the " + this.select + " ,as soon as possible, during the week.");
-      else
-        alert("Your request was sent ! we will call you, as soon as possible, during the week.");
-      // alert(this.name.substring(0, this.name.indexOf(' '))+" ,your request was sent ! we will call you in the "+ this.select+" ,as soon as possible, during the week.");
-      this.clear();
     },
     clear() {
-      // this.$v.$reset()
       this.name = ''
       this.email = ''
       this.phoneNumber = ''
       this.select = null
       this.checkbox = false
-    },
-    saveData() {
-
-
-      // this.$emit("created", this.newCallback);
-      // this.newCallback = generateNewCallback();
-      // console.log(this.newCallback);
-      // this.dialog = false;
-
-      //       const docRef = await actions(collection(db, "Callbacks"), {
-      //   name: "Tokyo",
-      //   country: "Japan"
-      // })
-      // if (this.name) {
-      //   db.collection('Callbacks').add({
-      //     email: this.email,
-      //     name: this.name,
-      //     phoneNumber: this.phoneNumber,
-      //     time: this.select
-      //   })
-      // }else{
-      //   this.message = "NOT OKAY " ;
-      //   alert(this.message);
-      // }
     }
   },
 }

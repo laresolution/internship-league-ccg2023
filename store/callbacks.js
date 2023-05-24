@@ -1,3 +1,4 @@
+import { v4 } from 'uuid'
 import { set } from 'vue';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, setDoc, doc} from "firebase/firestore";
@@ -31,7 +32,6 @@ const state = () => ({
 const mutations = {
     CALLBACK_ADDING(state, tempCallback) {
         const id = tempCallback.id;
-        console.log(`Callback ${id} adding`)
         set(state.callbacks, id, { ...tempCallback, loading: true })
     },
     CALLBACK_ADDED(state, callbackIdFromDatabase) {
@@ -39,16 +39,13 @@ const mutations = {
         if (state.callbacks[id]) {
             state.callbacks[id].loading = false;
         }
-        console.log(`Callback ${id} added`)
     },
     CALLBACK_ADD_FAILED(state, callback) {
         const id = callback.id;
-        console.log(`Callback ${id} failed`)
         delete state.callbacks[id]
     },
     CALLBACK_LOADED(state, callback) {
         const id = callback.id;
-        console.log(`Callback ${id} adding`)
         set(state.callbacks, id, callback)
     },
 }
@@ -65,18 +62,13 @@ const actions = {
         });
     },
     async addCallback({ commit }, callback) {
+        callback.id = v4()
         commit('CALLBACK_ADDING', callback)
-        // perform call to database and wait for results
         try {
-            // const docRef = await addDoc(collection(db, "callbacks"), callback);
             await setDoc(doc(db, "callbacks", callback.id), callback);
-            // on success... backend returns newly created user with all augmentations
             commit('CALLBACK_ADDED', callback.id)
-            console.log("Document written with ID: ", callback.id);
           } catch (e) {
-            // // on error... we revert everything
             commit('CALLBACK_ADD_FAILED', callback)
-            console.error("Error adding document: ", e);
           }
     }
 }
