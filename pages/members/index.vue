@@ -2,7 +2,7 @@
     <v-container> 
     <router-link :to="`/`">Home</router-link> 
       <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
-      <MemberSection2 v-for="member in members" :key="member.numero" :value="member"></MemberSection2> 
+      <MemberSection2 v-for="member in members" :key="member.numero" :value="member" v-show="false"></MemberSection2> 
       <ul>
         <li v-for="member in members" :key="member.id">
           <div>
@@ -20,10 +20,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { mapGetters, mapActions } from 'vuex'; 
 import AddDialog from '~/components/AddDialog.vue';
 import MemberSection2 from '~/components/MemberSection2.vue';
- 
+  
 export default {
     name: "Members",
-    components: {AddDialog, MemberSection2 },
+    components: {AddDialog,   MemberSection2  },
     layout: "newlayout2",
     data() {
         return {
