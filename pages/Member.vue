@@ -1,24 +1,24 @@
 <template>
     <div>
-        
         <AddButton @click="showAddForm"></AddButton>
-            <v-card v-if="formShown">
-                <v-card-title>Add new member</v-card-title>
-                <v-card-text>                    
-                    <AddMember @created="memberCreated" @cancel="hideForm"></AddMember>
-                </v-card-text>
-            </v-card>
-            <MemberStyle v-for="member in members" :key="member.id" v-model="member.data"></MemberStyle>
+        <v-card v-if="formShown">
+            <v-card-title>Add new member</v-card-title>
+            <v-card-text>
+                <AddMember @created="memberCreated" @cancel="hideForm"></AddMember>
+            </v-card-text>
+        </v-card>
+        <MemberSection v-for="member in members" :key="member.id" v-model="member.data"></MemberSection>
     </div>
-    </template>
+</template>
 
-    <script>
-import AddButton from '~/components/buttons/AddButton.vue';
+<script>
 import AddMember from '~/components/AddMember.vue';
-import MemberStyle from '~/components/MemberStyle.vue';
-    export default{
-    name: "Members",
-    components: { AddButton, AddMember, MemberStyle },
+import MemberSection from '~/components/MemberSection.vue';
+import AddButton from '~/components/buttons/AddButton.vue';
+
+export default {
+    name: "Member",
+    components: { MemberSection, AddButton, AddMember },
     data() {
         return {
             formShown: false,
@@ -46,7 +46,8 @@ import MemberStyle from '~/components/MemberStyle.vue';
                     strengths: 'I work efficiently in a team and have great autonomy in my learning. Creative and with a good ability to synthetize, I can accurately and quickly accomplish tasks to enhance your business operations',
                     likes: 'I enjoy running, skiing and learning new things.'
                 }
-            },{ 
+            },
+            { 
                 id: 3,
                 data: {
                     id: 3,
@@ -60,7 +61,7 @@ import MemberStyle from '~/components/MemberStyle.vue';
             }]
         }
     },
-        methods: {
+    methods: {
         showAddForm() {
             this.formShown = true
         },
@@ -79,3 +80,5 @@ import MemberStyle from '~/components/MemberStyle.vue';
     }
 }
 </script>
+
+<style scoped></style>
