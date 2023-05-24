@@ -61,9 +61,9 @@ export default {
       // this.dialog = false;
       // this.saveData();
       if (this.select !== 'Both')
-        alert(this.name + " ,your request was sent ! we will call you in the " + this.select + " ,as soon as possible, during the week.");
+        alert("Your request was sent ! we will call you in the " + this.select + " ,as soon as possible, during the week.");
       else
-        alert(this.name + " ,your request was sent ! we will call you, as soon as possible, during the week.");
+        alert("Your request was sent ! we will call you, as soon as possible, during the week.");
       // alert(this.name.substring(0, this.name.indexOf(' '))+" ,your request was sent ! we will call you in the "+ this.select+" ,as soon as possible, during the week.");
       this.clear();
     },
