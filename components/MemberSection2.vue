@@ -1,5 +1,75 @@
 <template>
     <v-container>
+        
+  <v-card
+    class="mx-auto"
+    max-width="400"
+  >
+    <v-img
+      class="align-end text-white"
+      height="200"
+      src=""
+      cover
+    >
+      <v-card-title>{{member.name}}</v-card-title>
+    </v-img>
+
+    <v-card-subtitle class="pt-4">
+      Number 10
+    </v-card-subtitle>
+
+    <v-card-text>
+      <div>Whitehaven Beach</div>
+
+      <div>Whitsunday Island, Whitsunday Islands</div>
+    </v-card-text>
+
+    <v-card-actions>
+      <v-btn color="orange">
+        Share
+      </v-btn>
+
+      <v-btn color="orange">
+        Explore
+      </v-btn>
+    </v-card-actions>
+  </v-card>
+
+        <v-card 
+            v-show="!isEditing"
+            class="mx-auto"
+            max-width="400"
+
+           
+>
+            <v-card-title></v-card-title>
+            <v-card-subtitle class="pt-4">{{member.institution}}</v-card-subtitle>
+
+            <v-card-text><div class="text-body-1">{{member.numero}} </div></v-card-text>
+
+            <div class="text-body-1">{{member.id}} </div>   
+                
+                 
+                <div class="text-body-1">{{member.email}} </div>
+                <div class="text-body-1">{{member.phone}}  </div>   
+                <div class="text-body-1">{{member.studentNumber}} </div>
+                <div class="text-body-1">{{member.programNumber}} </div>
+               
+                <div class="text-body-1">{{member.supervisorName}} </div>
+                <div class="text-body-1">{{member.startDate}} </div>
+                <div class="text-body-1">{{member.endDate}} </div>
+                <v-btn
+                    class="mx-2"
+                    fab
+                    color="primary"
+                    @click="startEdit"
+                >
+                    <v-icon dark>
+                        mdi-pencil
+                    </v-icon>
+                </v-btn>
+
+        </v-card>
         <v-row> 
             <v-col v-show="!isEditing">
                 <div class="text-body-1" label="ID">{{member.id}} </div>   
