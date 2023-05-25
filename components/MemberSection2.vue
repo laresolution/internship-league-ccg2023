@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+ <v-container>   
         
   <v-card
     v-show="!isEditing"
@@ -9,10 +9,10 @@
     <v-img
       class="align-end text-white"
       height="200"
-      src=""
+      src="https://as2.ftcdn.net/v2/jpg/03/18/58/87/1000_F_318588746_kenL6hEDeJhlYT1gut7Gae3PBog38ili.jpg"
       cover
     >
-      <v-card-title>{{member.name}}</v-card-title>
+      <v-card-title style="font-weight: bolder; font-size: 5ch;">{{member.name}}</v-card-title>
     </v-img>
 
     <v-card-subtitle class="pt-4">
@@ -50,10 +50,12 @@
                         mdi-pencil
                     </v-icon>
                 </v-btn>
-    </v-card-actions>    
+    </v-card-actions>
+    <v-spacer></v-spacer>     
   </v-card>
   <v-spacer></v-spacer> 
   <v-spacer></v-spacer> 
+  
         <v-row> 
             <v-spacer></v-spacer> 
             <v-col v-show="isEditing"> 

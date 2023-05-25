@@ -2,12 +2,12 @@
     <v-container> 
     <router-link :to="`/`">Home</router-link> 
       <AddDialog @member-saved="handleMemberSaved"></AddDialog> 
-      <MemberSection2 v-for="member in members" :key="member.numero" :value="member" v-show="false"></MemberSection2> 
+      <MemberSection2 v-for="member in members" v-show="false" :key="member.numero" :value="member"></MemberSection2> 
       <ul>
         <li v-for="member in members" :key="member.id">
           <div>
           <router-link :to="`/members/${member.id}`">
-            {{ member.id }} 
+            {{ member.name }} 
           </router-link> 
           </div> 
         </li>
@@ -24,6 +24,11 @@ import MemberSection2 from '~/components/MemberSection2.vue';
 export default {
     name: "Members",
     components: {AddDialog,   MemberSection2  },
+    beforeRouteEnter(to, from, next) {
+        next(vm => { 
+         vm.loadMembers() ;  
+        })
+    },
     layout: "newlayout2",
     data() {
         return {
@@ -60,13 +65,8 @@ export default {
                 endDate:member.endDate,
         })  
       }, 
-    },  
-  
-    beforeRouteEnter(to, from, next) {
-        next(vm => { 
-         vm.loadMembers() ;  
-        })
-    }
+    } 
+    
 }
 </script>
 

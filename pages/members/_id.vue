@@ -14,9 +14,6 @@
          <router-link to="../members">Back to list</router-link>
          <MemberSection2 :value="givenMember"></MemberSection2> 
         </v-containar>     
- 
-
-    
   
 </template>
 
