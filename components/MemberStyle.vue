@@ -7,7 +7,7 @@
       <v-container fluid>
         <v-row>
           <v-col cols="3">
-            <v-img src="https://laresolution.ca/internshipleague/wp-content/uploads/2023/04/vitaly.jpg" class="rounded-circle" cover></v-img>
+            <v-img :src="member.imgSrc" class="rounded-circle" cover></v-img>
           </v-col>
   
           <v-col v-show="!isEditing" cols="9">
@@ -23,30 +23,30 @@
            
           </v-col>
         </v-row>
-
         <v-row>
-
-       
-
-        <v-col cols="4">
-            <v-btn fab color="primary" href="https://www.linkedin.com/in/vitaly-savin-710097252">
-              <svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon>
-             </v-btn>                    
-        </v-col>
-        <v-col cols="4">
-            <v-btn
-                    class="mx-2"
-                    fab
-                    color="primary"
-                    @click="startEdit"
-                >
-                    <v-icon dark>
-                        mdi-pencil
-                    </v-icon>
-                </v-btn>
-        </v-col>
-      </v-row>
-
+          <v-col cols="4">
+              <v-btn fab color="primary" :href="member.linkedin" target="_blank">
+                <svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon>
+              </v-btn>                    
+          </v-col>
+          <v-col cols="4">
+              <v-btn fab color="primary" :href="member.profile" target="_blank">
+                <svg-icon type="mdi" :path="path2" size="55" style="color: primary;"></svg-icon>
+              </v-btn>                    
+          </v-col>
+          <v-col cols="4">
+              <v-btn
+                      class="mx-2"
+                      fab
+                      color="primary"
+                      @click="startEdit"
+                  >
+                      <v-icon dark>
+                          mdi-pencil
+                      </v-icon>
+                  </v-btn>
+          </v-col>
+        </v-row>
       <v-col v-show="isEditing">
                 <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
                 <div class="text-h3">{{member.title}} </div>
@@ -75,7 +75,7 @@
   
   
   import SvgIcon from '@jamescoyle/vue-icon';
-  import { mdiLinkedin } from '@mdi/js';
+  import { mdiLinkedin, mdiClipboardAccount } from '@mdi/js';
   import vModelObjectMixin from '~/mixins/vModelObjectMixin';
   export default {
   name: "MemberStyle",  
@@ -87,6 +87,7 @@
     return {
         
         path: mdiLinkedin,
+        path2: mdiClipboardAccount,
         isEditing: false
     }
   },
