@@ -7,18 +7,18 @@
                 <AddMember @created="memberCreated" @cancel="hideForm"></AddMember>
             </v-card-text>
         </v-card>
-        <MemberSection v-for="member in members" :key="member.id" v-model="member.data"></MemberSection>
+        <MemberSection2 v-for="member in members" :key="member.id" v-model="member.data"></MemberSection2>
     </div>
 </template>
 
 <script>
 import AddMember from '~/components/AddMember.vue';
-import MemberSection from '~/components/MemberSection.vue';
+import MemberSection2 from '~/components/MemberSection2.vue';
 import AddButton from '~/components/buttons/AddButton.vue';
 
 export default {
     name: "Member",
-    components: { MemberSection, AddButton, AddMember },
+    components: { MemberSection2, AddButton, AddMember },
     data() {
         return {
             formShown: false,
