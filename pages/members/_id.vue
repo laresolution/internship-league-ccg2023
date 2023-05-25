@@ -1,5 +1,7 @@
 <template>
-    <v-container> 
+     <v-card
+     class="mx-auto"
+    max-width="400"> 
         <!-- {{ givenMemberId }}<br />    
         {{ givenMember.numero }}<br />
         {{ givenMember.name }}<br />
@@ -11,11 +13,13 @@
         {{ givenMember.supervisorName }}<br />
         {{ givenMember.startDate }}<br />
         {{ givenMember.endDate }}<br /> -->  
-        <router-link to="../members">Back to list</router-link>
+         <router-link to="../members">Back to list</router-link>
         <MemberSection2 :value="givenMember"></MemberSection2>  
          
  
-    </v-container> 
+    </v-card> 
+    
+  
 </template>
 
 <script>
@@ -23,11 +27,10 @@ import { mapGetters } from 'vuex'
 import MemberSection2 from '~/components/MemberSection2.vue';
  
 export default {
-    
+    components: {MemberSection2 },
     data() {
         return {};
-    },
-    components: {MemberSection2 },
+    },    
     computed: {
         ...mapGetters('members',[
             'members'

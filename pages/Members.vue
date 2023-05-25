@@ -10,6 +10,14 @@
             </v-card>
             <MemberStyle v-for="member in members" :key="member.id" v-model="member.data"></MemberStyle>
     </div>
+
+
+
+
+
+
+
+    
     </template>
 
     <script>
