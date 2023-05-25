@@ -60,10 +60,14 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import ContactForm from '~/components/ContactForm.vue'
-// import RegForm from '~/components/RegForm.vue';
 export default {
   name: 'Contact',
   components: { ContactForm },
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      vm.loadCallbacks()
+    })
+  },
   data() {
     return {
       headerTitle: 'Internship League',
@@ -75,10 +79,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('callbacks', ['currentCallback']),
+    ...mapGetters('callbacks', ['callbacks','currentCallback']),
+    regularComputedProperty() {
+      return true
+    },
   },
   methods: {
-    ...mapActions('callbacks', ['addCallback']),
+    ...mapActions('callbacks', ['loadCallbacks','addCallback']),
     affiche() {
       this.seen = true
     },
