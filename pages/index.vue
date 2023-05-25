@@ -32,6 +32,20 @@
                 >
                 {{ textBtnJoinUs }}
             </v-btn>
+             
+
+
+        <v-btn 
+            v-bind="attrs"
+            v-on="on"
+
+            elevation="2" 
+            style="background-color: #FFBB01; color:rgb(224, 43, 32); font-size:20px; text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4); letter-spacing:4px; font-weight:700; padding: 24px 20px;">
+             
+            <a href="/members" class="no-underline" >{{ textBtnJoinUs }}</a>
+            
+          </v-btn>
+          
         </v-row>
         <v-row no-gutters>
             <v-img
@@ -48,17 +62,27 @@
 </template>
 
 <script>
+
+ 
 export default {
-    name: 'Home',
+    name: 'Home', 
     data() {
         return {
             headerTitle: 'Internship League',
             altBanner: 'Banner Join Us',
             invitationText: 'Live this collaborative experience by joining the internship league! Join like minded individuals who are as excited as you are to begin practicing their craft. Acquire the experience needed to close the junior gap and get hired by showing your work.',
-            textBtnJoinUs: 'Join now'
-        }
-    }
+            textBtnJoinUs: 'Join now',
+            currentMember: null // Initialize currentMember 
+        } 
+    },
+    methods: {  }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.no-underline {
+  text-decoration: none;
+  color: red;
+}
+
+</style>

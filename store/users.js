@@ -1,6 +1,7 @@
 import { set } from 'vue';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
+import { updateDoc, deleteDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCb54FM0ibSDP40a47K-VtUsroV5ri7bGE",
@@ -51,6 +52,10 @@ const mutations = {
         console.log(`user ${id} adding`)
         set(state.users, id, user)
     },
+    USER_DELETED(state, userId) {
+        delete state.users[userId];
+        console.log(`User ${userId} deleted`);
+      }
 }
 
 // Actions = public methods
@@ -77,7 +82,28 @@ const actions = {
             commit('USER_ADD_FAILED', user)
             console.error("Error adding document: ", e);
           }
-    }
+    },
+    async updateUser({ commit }, user) { 
+        try {
+          const docRef = collection(db, "users").doc(user.id);
+          await updateDoc(docRef, user);
+          commit('USER_ADDED', user.id);
+          console.log("User updated: ", user.id);
+        } catch (e) {
+          console.error("Error updating user: ", e);
+        }
+      },
+    
+      async deleteUser({ commit }, userId) {
+        try {
+          const docRef = collection(db, "users").doc(userId);
+          await deleteDoc(docRef);
+          commit('USER_DELETED', userId);
+          console.log("User deleted: ", userId);
+        } catch (e) {
+          console.error("Error deleting user: ", e);
+        }
+      }
 }
 
 const getters = {
