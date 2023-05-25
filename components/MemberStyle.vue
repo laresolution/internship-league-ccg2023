@@ -1,113 +1,96 @@
 <template>
-    <v-sheet
-      border="lg opacity-12"
-      class="text-body-2 mx-auto"
-      max-width="550"
-    >
-      <v-container fluid>
-        <v-row>
-          <v-col cols="3">
-            <v-img :src="member.imgSrc" class="rounded-circle" cover></v-img>
-          </v-col>
-  
-          <v-col v-show="!isEditing" cols="9">
-            
-                <div class="text-h2">{{valueModel.name}} </div>
-                <div class="text-h3"> {{member.title}}</div>
-                <div class="text-body-2">{{member.quote}} </div>
-                <div class="text-subtitle-2">Strengths</div>
-                <div class="text-body-1"> {{member.strengths}}</div>
-                <v-spacer></v-spacer>
-                <div class="text-subtitle-2">Likes</div>
-                <div class="text-body-1"> {{member.likes}} </div>
-           
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="4">
-              <v-btn fab color="primary" :href="member.linkedin" target="_blank">
-                <svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon>
-              </v-btn>                    
-          </v-col>
-          <v-col cols="4">
-              <v-btn fab color="primary" :href="member.profile" target="_blank">
-                <svg-icon type="mdi" :path="path2" size="55" style="color: primary;"></svg-icon>
-              </v-btn>                    
-          </v-col>
-          <v-col cols="4">
-              <v-btn
-                      class="mx-2"
-                      fab
-                      color="primary"
-                      @click="startEdit"
-                  >
-                      <v-icon dark>
-                          mdi-pencil
-                      </v-icon>
-                  </v-btn>
-          </v-col>
-        </v-row>
+  <v-sheet border="lg opacity-12" class="text-body-2 mx-auto" max-width="80%">
+    <v-container fluid>
+      <v-row>
+        <v-col cols="3">
+          <v-img :src="member.imgSrc" class="rounded-circle" cover></v-img>
+        </v-col>
+        <v-col v-show="!isEditing" cols="9">
+          <div class="text-h2">{{ valueModel.name }} </div>
+          <div class="text-h3"> {{ member.title }}</div>
+          <div class="text-body-2">{{ member.quote }} </div>
+          <div class="text-subtitle-2">Strengths</div>
+          <div class="text-body-1"> {{ member.strengths }}</div>
+          <v-spacer></v-spacer>
+          <div class="text-subtitle-2">Likes</div>
+          <div class="text-body-1"> {{ member.likes }} </div>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="4">
+          <v-btn fab color="primary" :href="member.linkedin" target="_blank">
+            <svg-icon type="mdi" :path="path" size="55" style="color: primary;"></svg-icon>
+          </v-btn>
+        </v-col>
+        <v-col cols="4">
+          <v-btn fab color="primary" :href="member.profile" target="_blank">
+            <svg-icon type="mdi" :path="path2" size="55" style="color: primary;"></svg-icon>
+          </v-btn>
+        </v-col>
+        <v-col cols="4">
+          <v-btn class="mx-2" fab color="primary" @click="startEdit">
+            <v-icon dark>
+              mdi-pencil
+            </v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
       <v-col v-show="isEditing">
-                <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
-                <div class="text-h3">{{member.title}} </div>
-                <div class="text-body-2">{{member.quote}} </div>
-                <div class="text-subtitle-2">Strengths</div>
-                <div class="text-body-1"> {{member.strengths}} </div>
-                <v-spacer></v-spacer>
-                <div class="text-subtitle-2">Likes</div>
-                <div class="text-body-1"> {{member.likes}}</div>
-                <v-btn
-                    class="mx-2"
-                    fab
-                    color="success"
-                    @click="save"
-                >
-                    <v-icon dark>
-                        mdi-content-save
-                    </v-icon>
-                </v-btn>
-            </v-col>
-      </v-container>
-    </v-sheet>
-  </template>
+        <v-text-field v-model="valueModel.name" label="Name"></v-text-field>
+        <div class="text-h3">{{ member.title }} </div>
+        <div class="text-body-2">{{ member.quote }} </div>
+        <div class="text-subtitle-2">Strengths</div>
+        <div class="text-body-1"> {{ member.strengths }} </div>
+        <v-spacer></v-spacer>
+        <div class="text-subtitle-2">Likes</div>
+        <div class="text-body-1"> {{ member.likes }}</div>
+        <v-btn class="mx-2" fab color="success" @click="save">
+          <v-icon dark>
+            mdi-content-save
+          </v-icon>
+        </v-btn>
+      </v-col>
+    </v-container>
+  </v-sheet>
+</template>
 
-  <script>
-  
-  
-  import SvgIcon from '@jamescoyle/vue-icon';
-  import { mdiLinkedin, mdiClipboardAccount } from '@mdi/js';
-  import vModelObjectMixin from '~/mixins/vModelObjectMixin';
-  export default {
-  name: "MemberStyle",  
+<script>
+
+
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiLinkedin, mdiClipboardAccount } from '@mdi/js';
+import vModelObjectMixin from '~/mixins/vModelObjectMixin';
+export default {
+  name: "MemberStyle",
   components: {
     SvgIcon
   },
   mixins: [vModelObjectMixin],
   data() {
     return {
-        
-        path: mdiLinkedin,
-        path2: mdiClipboardAccount,
-        isEditing: false
+
+      path: mdiLinkedin,
+      path2: mdiClipboardAccount,
+      isEditing: false
     }
   },
   computed: {
-        member () {
-            return this.value || {};
-        }
-    },
-    methods: {
-        startEdit() {
-            this.isEditing = true;
-        },
-        save () {
-            this.isEditing = false;
-            this.emitValue()
-        },
-        cancel () {
-            this.isEditing = false;
-        }
+    member() {
+      return this.value || {};
     }
-  
+  },
+  methods: {
+    startEdit() {
+      this.isEditing = true;
+    },
+    save() {
+      this.isEditing = false;
+      this.emitValue()
+    },
+    cancel() {
+      this.isEditing = false;
+    }
+  }
+
 }
-  </script>
+</script>
