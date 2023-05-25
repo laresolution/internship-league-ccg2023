@@ -2,6 +2,7 @@
     <v-container>
         
   <v-card
+    v-show="!isEditing"
     class="mx-auto"
     max-width="400"
   >
@@ -15,13 +16,19 @@
     </v-img>
 
     <v-card-subtitle class="pt-4">
-      Number 10
+        Institution: {{member.institution}}
     </v-card-subtitle>
-
+    <v-spacer></v-spacer> 
     <v-card-text>
-      <div>Whitehaven Beach</div>
-
-      <div>Whitsunday Island, Whitsunday Islands</div>
+      <div class="text-body-1">Membership Number: {{member.numero}}</div>
+      <!-- <div class="text-body-1">{{member.id}} </div> -->
+                <div class="text-body-1">Email: {{member.email}} </div>
+                <div class="text-body-1">Phone: {{member.phone}}  </div>   
+                <div class="text-body-1">Stdent Number: {{member.studentNumber}} </div>
+                <div class="text-body-1">Program Number:{{member.programNumber}} </div>
+                <div class="text-body-1">Supervisor: {{member.supervisorName}} </div>
+                <div class="text-body-1">Start Date: {{member.startDate}} </div>
+                <div class="text-body-1">End Date: {{member.endDate}} </div>
     </v-card-text>
 
     <v-card-actions>
@@ -32,68 +39,22 @@
       <v-btn color="orange">
         Explore
       </v-btn>
-    </v-card-actions>
+
+      <v-btn
+                class="mx-2"
+                fab
+                color="primary"
+                @click="startEdit"
+                >
+                    <v-icon dark>
+                        mdi-pencil
+                    </v-icon>
+                </v-btn>
+    </v-card-actions>    
   </v-card>
-
-        <v-card 
-            v-show="!isEditing"
-            class="mx-auto"
-            max-width="400"
-
-           
->
-            <v-card-title></v-card-title>
-            <v-card-subtitle class="pt-4">{{member.institution}}</v-card-subtitle>
-
-            <v-card-text><div class="text-body-1">{{member.numero}} </div></v-card-text>
-
-            <div class="text-body-1">{{member.id}} </div>   
-                
-                 
-                <div class="text-body-1">{{member.email}} </div>
-                <div class="text-body-1">{{member.phone}}  </div>   
-                <div class="text-body-1">{{member.studentNumber}} </div>
-                <div class="text-body-1">{{member.programNumber}} </div>
-               
-                <div class="text-body-1">{{member.supervisorName}} </div>
-                <div class="text-body-1">{{member.startDate}} </div>
-                <div class="text-body-1">{{member.endDate}} </div>
-                <v-btn
-                    class="mx-2"
-                    fab
-                    color="primary"
-                    @click="startEdit"
-                >
-                    <v-icon dark>
-                        mdi-pencil
-                    </v-icon>
-                </v-btn>
-
-        </v-card>
+  <v-spacer></v-spacer> 
+  <v-spacer></v-spacer> 
         <v-row> 
-            <v-col v-show="!isEditing">
-                <div class="text-body-1" label="ID">{{member.id}} </div>   
-                <div class="text-body-1">{{member.numero}} </div> 
-                <div class="text-body-1">{{member.name}} </div>  
-                <div class="text-body-1">{{member.email}} </div>
-                <div class="text-body-1">{{member.phone}}  </div>   
-                <div class="text-body-1">{{member.studentNumber}} </div>
-                <div class="text-body-1">{{member.programNumber}} </div>
-                <div class="text-body-1">{{member.institution}} </div>
-                <div class="text-body-1">{{member.supervisorName}} </div>
-                <div class="text-body-1">{{member.startDate}} </div>
-                <div class="text-body-1">{{member.endDate}} </div>
-                <v-btn
-                    class="mx-2"
-                    fab
-                    color="primary"
-                    @click="startEdit"
-                >
-                    <v-icon dark>
-                        mdi-pencil
-                    </v-icon>
-                </v-btn>
-            </v-col>
             <v-spacer></v-spacer> 
             <v-col v-show="isEditing"> 
                 <div class="text-body-1" label="ID">{{member.id}} </div>   

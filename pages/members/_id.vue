@@ -1,5 +1,5 @@
 <template>
-    
+    <v-containar>
        <!--  {{ givenMemberId }}<br />    
         {{ givenMember.numero }}<br />
         {{ givenMember.name }}<br />
@@ -12,8 +12,8 @@
         {{ givenMember.startDate }}<br />
         {{ givenMember.endDate }}<br /> --> 
          <router-link to="../members">Back to list</router-link>
-         <MemberSection2 :value="givenMember"></MemberSection2>
-         
+         <MemberSection2 :value="givenMember"></MemberSection2> 
+        </v-containar>     
  
 
     
