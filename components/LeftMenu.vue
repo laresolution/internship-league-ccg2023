@@ -1,5 +1,6 @@
 <template>
-    <v-card id="inspire"
+    <v-card
+        id="inspire"
         elevation="2"
         class="left-nav-bar pa-4">
         <v-navigation-drawer
