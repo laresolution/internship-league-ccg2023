@@ -44,7 +44,7 @@
       >
       </v-img>
     </v-row>
-    <v-row>
+    <!-- <v-row>
       <v-list>
         <v-list-item
           v-for="customer in customers"
@@ -54,7 +54,7 @@
           {{ customer }}
         </v-list-item>
       </v-list>
-    </v-row>
+    </v-row> -->
   </v-container>
 </template>
 
