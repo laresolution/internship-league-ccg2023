@@ -59,15 +59,14 @@ import AddMember from './AddMember.vue';
       enregistrerMembre() {
     // Get the member information from the child component
     const currentMember = this.$refs.addMember.saveMember();
-
+      
     // Save the member information or perform any other desired action
     this.currentMember = currentMember; 
     // Emit an event to send the member information to the parent component
-    this.$emit('member-saved', currentMember);
-    this.$router.push("/members");
+    this.$emit('member-saved', currentMember); 
     this.dialog = false
-    console.log("AddDialog:")
-    console.log(this.currentMember)
+    
+    this.$router.push("/");
     return this.currentMember;
   },
     }, 
