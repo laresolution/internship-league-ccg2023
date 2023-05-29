@@ -7,7 +7,7 @@
         <li v-for="member in members" :key="member.id">
           <div>
           <router-link :to="`/members/${member.id}`">
-            {{ member.id }} 
+            {{ member.name }} 
           </router-link> 
           </div> 
         </li>
