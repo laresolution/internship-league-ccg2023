@@ -59,9 +59,8 @@
 
             elevation="2" 
             style="background-color: #FFBB01; color:rgb(224, 43, 32); font-size:20px; text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4); letter-spacing:4px; font-weight:700; padding: 24px 20px;">
-             
-            <a href="/members" class="no-underline" >{{ textBtnJoinUs }}</a>
-            
+              
+            <AddDialog @member-saved="handleMemberSaved"></AddDialog>
           </v-btn>
           
         </v-row>
@@ -81,9 +80,13 @@
 
 <script>
 
+import { v4 as uuidv4 } from 'uuid';
+import { mapGetters, mapActions } from 'vuex'; 
+import AddDialog from '~/components/AddDialog.vue';
  
 export default {
-    name: 'Home', 
+    name: 'Home',
+    components: {AddDialog}, 
     data() {
         return {
             headerTitle: 'Internship League',
@@ -93,7 +96,40 @@ export default {
             currentMember: null // Initialize currentMember 
         } 
     },
-    methods: {  }
+    computed: {
+        ...mapGetters('members', [
+            'members',
+            'currentMember'
+        ]), 
+        regularComputedProperty () { 
+            return true
+        },
+         
+    }, 
+    methods: {
+        ...mapActions('members', [ 'loadMembers','addMember' ]),  
+        handleMemberSaved(member) { 
+         
+         const numero = uuidv4();  
+         this.addMember({ 
+                 numero, 
+                 name: member.name, 
+                 email: member.email,
+                 phone: member.phone,
+                 studentNumber: member.studentNumber,
+                 programNumber: member.programNumber,
+                 institution: member.institution,
+                 supervisorName: member.supervisorName,
+                 startDate:member.startDate,
+                 endDate:member.endDate,
+         })  
+       }, 
+      },
+      beforeRouteEnter(to, from, next) {
+        next(vm => { 
+         vm.loadMembers() ;  
+        })
+    }  
 }
 </script>
 
