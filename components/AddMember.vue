@@ -96,7 +96,7 @@ export default {
         saveMember() { 
             this.$emit("created", this.newMember);
             // this.newMember = generateNewMember(); -- to reset 
-            console.log(this.newMember);
+            console.log(this.newMember); 
             return this.newMember; // Return the member information    
         },
         clear() {

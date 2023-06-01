@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="pt-16 backG">
-    <p class="text-center titre display-1">
+<!--     <p class="text-center titre display-1">
       {{ title }}
     </p>
     <h3 class="text-center citation" style="color: rgb(23, 84, 78)">
@@ -37,10 +37,10 @@
         </v-card>
       </div>
     </div>
-    <br />
+    <br /> -->
     <v-btn
       block
-      color="black"
+      color="red"
       depressed
       elevation="22"
       plain
@@ -66,10 +66,10 @@ export default {
   components: { ContactForm },
   data() {
     return {
-      headerTitle: 'Internship League',
+      /* headerTitle: 'Internship League',
       srcBanner:
         'http://laresolution.ca/internshipleague/wp-content/uploads/2023/04/13762396_5330999-scaled.jpg',
-      title: 'CONTACT US !',
+      title: 'CONTACT US !', */
       seen: false,
       schedule: 'For more details - click here to schedule a Call-back ',
     }
