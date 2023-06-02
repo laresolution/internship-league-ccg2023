@@ -1,14 +1,34 @@
-import { v4 } from 'uuid';
+import { v4 } from 'uuid'
 import { set } from 'vue';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs, setDoc, doc} from "firebase/firestore";
+ 
 
-import { collection, getDocs, setDoc, doc } from "firebase/firestore";
-import { db } from './firebase';
+const firebaseConfig = {
+    apiKey: "AIzaSyCb54FM0ibSDP40a47K-VtUsroV5ri7bGE",
+    authDomain: "internship-league.firebaseapp.com",
+    projectId: "internship-league",
+    storageBucket: "internship-league.appspot.com",
+    messagingSenderId: "119738330715",
+    appId: "1:119738330715:web:7338ebe71884d60944d97e",
+    measurementId: "G-WET57SG6NX"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
 const products = collection(db, "products");
 
+// state = private properties
+// mutations = private methods
+
 const state = () => ({
-  products: {},
-  currentProductId: 1
-});
+    products: {},
+    currentProductId: 1
+})
 
 const mutations = {
     PRODUCT_ADDING(state, tempProduct) {
@@ -30,6 +50,9 @@ const mutations = {
         set(state.products, id, product)
     },
 }
+
+// Actions = public methods
+// Getters = public properties
 
 const actions = {
     async loadProducts({ commit }) {
@@ -56,10 +79,10 @@ const getters = {
     currentProduct: state => state.products[state.currentProductId] || {}
 }
 
-
 export default {
-  state,
-  mutations,
-  actions,
-  getters
-};
+    db,
+    state,
+    mutations,
+    actions,
+    getters
+}

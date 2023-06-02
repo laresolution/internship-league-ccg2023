@@ -8,7 +8,8 @@
           <div>
           <router-link :to="`/products/${product.id}`">
             {{ product.name }} 
-          </router-link> 
+          </router-link><br/> 
+           
           </div> 
         </li>
       </ul>
@@ -28,14 +29,14 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
- 
+import { mapGetters, mapActions } from 'vuex'  
+
 import AddProduct from '~/components/AddProduct.vue'
 import ProductList from '~/components/ProductList.vue'
-
+    
 export default {
   name: 'products',
-  components: { AddProduct, ProductList },
+  components: { AddProduct, ProductList   },
   data() {
     return { 
       formshown: false ,
