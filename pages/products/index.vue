@@ -46,7 +46,13 @@ export default {
     ...mapGetters('products', ['products','currentProduct']),
     regularComputedProperty () {
             return true
-        }
+        },
+    givenProductId() {
+        return this.$route.params?.id;
+    },    
+    givenProduct () {
+        return this.products[this.givenProductId] || {}
+    }    
   },
   methods: {
     ...mapActions('products', ['loadProducts','addProduct']),
@@ -55,8 +61,9 @@ export default {
     },
     productCreated(product) {
       this.formshown = false
-       this.addProduct(product)
-      alert('product added   '+ product.id + '  !')
+      this.addProduct(product) 
+      const id = product.id; 
+      this.$router.push("/products/"+id);
     }, 
   },
   beforeRouteEnter(to, from, next) {
