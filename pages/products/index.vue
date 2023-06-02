@@ -11,13 +11,15 @@
           </router-link> 
           </div> 
         </li>
-      </ul>     
+      </ul>
+    <div style="display: flex; justify-content: center;">    
     <v-btn   
             elevation="2" 
             style="background-color: #FFBB01; color:rgb(224, 43, 32); font-size:20px; text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4); letter-spacing:4px; font-weight:700; padding: 24px 20px;" 
             @click="affiche"> 
             {{ display }}
     </v-btn>
+    </div> 
     <br />
     <div v-if="formshown">
       <AddProduct @created="productCreated" /> 
@@ -37,7 +39,7 @@ export default {
   data() {
     return { 
       formshown: false ,
-      display: 'Join Now', 
+      display: 'Add Product', 
     }
   },
   computed: {
@@ -54,7 +56,7 @@ export default {
     productCreated(product) {
       this.formshown = false
        this.addProduct(product)
-      alert('product added')
+      alert('product added   '+ product.id + '  !')
     }, 
   },
   beforeRouteEnter(to, from, next) {
