@@ -9,6 +9,7 @@
     <br />
     <div v-if="seen">
       <AddProduct @created="productCreated" />
+      <ProductList></ProductList>
     </div>
   </v-container>
 </template>
@@ -16,10 +17,10 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import AddProduct from '~/components/AddProduct.vue'
- 
+import ProductList from '~/components/ProductList.vue'
 export default {
   name: 'products',
-  components: { AddProduct },
+  components: { AddProduct, ProductList },
   data() {
     return { 
       seen: false,
