@@ -54,7 +54,7 @@ export default {
     productCreated(product) {
       this.formshown = false
        this.addProduct(product)
-      alert('product done')
+      alert('product added')
     }, 
   },
   beforeRouteEnter(to, from, next) {
