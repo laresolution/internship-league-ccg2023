@@ -9,22 +9,24 @@
     <br />
     <div v-if="seen">
       <AddProduct @created="productCreated" />
-      <ProductList></ProductList>
+      <ProductList v-for="product in products" :key="product.id" :value="product" v-show="true" /> 
     </div>
   </v-container>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+ 
 import AddProduct from '~/components/AddProduct.vue'
 import ProductList from '~/components/ProductList.vue'
+
 export default {
   name: 'products',
   components: { AddProduct, ProductList },
   data() {
     return { 
       seen: false,
-      display: 'Join Now'
+      display: 'Join Now', 
     }
   },
   computed: {
@@ -39,10 +41,11 @@ export default {
       this.seen = false
       await this.addProduct(product)
       alert('product done')
-    },
-  },
+    }, 
+  }, 
 }
 </script>
+
 
 
 
