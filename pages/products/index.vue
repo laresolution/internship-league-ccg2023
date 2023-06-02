@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="pt-16 backG"> 
-    <div v-if="seen"> 
+    <div v-if="formshown"> 
       <ProductList v-for="product in products" :key="product.id" :value="product" v-show="false" /> 
     </div>
     <ul>
@@ -19,7 +19,7 @@
             {{ display }}
     </v-btn>
     <br />
-    <div v-if="seen">
+    <div v-if="formshown">
       <AddProduct @created="productCreated" /> 
     </div>
   </v-container>
@@ -36,7 +36,7 @@ export default {
   components: { AddProduct, ProductList },
   data() {
     return { 
-      seen: false ,
+      formshown: false ,
       display: 'Join Now', 
     }
   },
@@ -49,10 +49,10 @@ export default {
   methods: {
     ...mapActions('products', ['loadProducts','addProduct']),
     affiche() {
-      this.seen = true
+      this.formshown = true
     },
     productCreated(product) {
-      this.seen = false
+      this.formshown = false
        this.addProduct(product)
       alert('product done')
     }, 
