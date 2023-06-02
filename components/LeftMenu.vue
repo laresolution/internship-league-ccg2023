@@ -61,7 +61,7 @@ export default {
           { title: 'Home', url: '/' },
           { title: 'Join Us', url: '/' },
           { title: 'Hire Us', url: '/hire' },
-          { title: 'Products', url: '/products' },
+          { title: 'Members', url: '/members' },
           { title: 'Contact', url: '/contact' }
         ],
         right: null,
