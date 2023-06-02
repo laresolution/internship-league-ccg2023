@@ -30,10 +30,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('products', ['currentProduct']),
+    ...mapGetters('products', ['products','currentProduct']),
+    regularComputedProperty () {
+            return true
+        }
   },
   methods: {
-    ...mapActions('products', ['addProduct']),
+    ...mapActions('products', ['loadProducts','addProduct']),
     affiche() {
       this.seen = true
     },
@@ -42,7 +45,12 @@ export default {
       await this.addProduct(product)
       alert('product done')
     }, 
-  }, 
+  },
+  beforeRouteEnter(to, from, next) {
+        next(vm => {
+            vm.loadProducts()
+        })
+    } 
 }
 </script>
 
