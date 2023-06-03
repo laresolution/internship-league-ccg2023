@@ -65,10 +65,9 @@ export default {
         startEdit() {
             this.isEditing = true;
         },
-        save () {
+        save() {
             this.isEditing = false;
-            this.emitValue()
-             
+            this.$emit('saveData',this.valueModel) 
         },
         cancel () {
             this.isEditing = false;

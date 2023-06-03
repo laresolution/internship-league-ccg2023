@@ -1,17 +1,22 @@
 <template>
   <v-container fluid class="pt-16 backG"> 
     <div v-if="formshown"> 
-      <ProductList v-for="product in products" :key="product.id" :value="product" v-show="true" /> 
+      <ProductList v-for="product in products" :key="product.id" :value="product" v-show="false" /> 
     </div>
-<!--     <ul>
+    <ul>
         <li v-for="product in products" :key="product.id">
           <div>
           <router-link :to="`/products/${product.id}`">
             {{ product.name }} 
+            
+            <v-btn
+            class="mx-2" color="info"  >  
+            <v-icon dark>mdi-information</v-icon> 
+            </v-btn>
           </router-link><br/>  
           </div> 
         </li>
-      </ul> -->
+      </ul>  
     <div style="display: flex; justify-content: center;">    
     <v-btn   
             elevation="2" 
