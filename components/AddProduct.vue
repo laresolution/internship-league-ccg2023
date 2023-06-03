@@ -1,10 +1,6 @@
 <template>
-  <div>
-    <v-divider
-      :thickness="13"
-      class="border-opacity-100"
-      color="blue"
-    ></v-divider>
+  <v-container fluid> 
+    <v-row>
     <v-form> 
         <v-text-field
           v-model="newProduct.name"
@@ -17,16 +13,15 @@
           label="Product price"
           required
         ></v-text-field>
-        <v-text-field
-          v-model="newProduct.description"
-          label="Product Description" 
-        ></v-text-field>
+        <textarea v-model="newProduct.description" rows="4" cols="80"
+         placeholder="Product Description"></textarea>
           
         <v-btn class="mr-4 success" @click="submit"> Add product </v-btn>
-        <v-btn @click="clear"> clear </v-btn>
+        <v-btn class="mr-4 error" @click="clear"> clear </v-btn>
      
-    </v-form>
-  </div>
+      </v-form> 
+    </v-row>
+  </v-container>  
 </template>
 
 <script>
