@@ -74,8 +74,9 @@ export default {
         drawer: null,
         items: [
           { title: 'Home', url: '/' },
-          { title: 'Join Us', url: '/#regform' },
+         
           { title: 'Hire Us', url: '/hire' },
+          { title: 'Members', url: '/members' },
           { title: 'Products', url: '/products' },
           { title: 'Contact', url: '/contact' }
         ],
