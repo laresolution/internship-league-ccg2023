@@ -5,8 +5,7 @@
       class="border-opacity-100"
       color="blue"
     ></v-divider>
-    <v-form>
-      <form>
+    <v-form> 
         <v-text-field
           v-model="newProduct.name"
           label="Product name"
@@ -25,7 +24,7 @@
           
         <v-btn class="mr-4 success" @click="submit"> Add product </v-btn>
         <v-btn @click="clear"> clear </v-btn>
-     </form>
+     
     </v-form>
   </div>
 </template>
