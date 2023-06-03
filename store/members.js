@@ -1,33 +1,14 @@
-import { v4 } from 'uuid'
+import { v4 } from 'uuid';
 import { set } from 'vue';
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, setDoc, doc} from "firebase/firestore";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyCb54FM0ibSDP40a47K-VtUsroV5ri7bGE",
-    authDomain: "internship-league.firebaseapp.com",
-    projectId: "internship-league",
-    storageBucket: "internship-league.appspot.com",
-    messagingSenderId: "119738330715",
-    appId: "1:119738330715:web:7338ebe71884d60944d97e",
-    measurementId: "G-WET57SG6NX"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
-
+import { collection, getDocs, setDoc, doc } from "firebase/firestore";
+import { db } from './firebase';
 const members = collection(db, "members");
 
-// state = private properties
-// mutations = private methods
-
 const state = () => ({
-    members: {},
-    currentMemberId: 1
-})
+  members: {},
+  currentMemberId: 1
+});
 
 const mutations = {
     MEMBER_ADDING(state, tempMember) {
@@ -49,9 +30,6 @@ const mutations = {
         set(state.members, id, member)
     },
 }
-
-// Actions = public methods
-// Getters = public properties
 
 const actions = {
     async loadMembers({ commit }) {
@@ -78,10 +56,10 @@ const getters = {
     currentMember: state => state.members[state.currentMemberId] || {}
 }
 
+
 export default {
-    db,
-    state,
-    mutations,
-    actions,
-    getters
-}
+  state,
+  mutations,
+  actions,
+  getters
+};

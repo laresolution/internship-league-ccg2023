@@ -3,7 +3,7 @@
         <v-row> 
             <v-col v-show="!isEditing">
                 <div class="text-body-1" label="ID">{{member.id}} </div>   
-                <div class="text-body-1">{{member.numero}} </div> 
+                 
                 <div class="text-body-1">{{member.name}} </div>  
                 <div class="text-body-1">{{member.email}} </div>
                 <div class="text-body-1">{{member.phone}}  </div>   
@@ -27,7 +27,7 @@
             <v-spacer></v-spacer> 
             <v-col v-show="isEditing"> 
                 <div class="text-body-1" label="ID">{{member.id}} </div>   
-                <div class="text-body-1">{{member.numero}} </div> 
+                  
                 <v-text-field v-model="valueModel.name">{{member.name}}</v-text-field>
                 <v-text-field v-model="valueModel.email">{{member.email}}</v-text-field> 
                 <v-text-field v-model="valueModel.phone">{{member.phone}}</v-text-field>
@@ -78,7 +78,7 @@ export default {
         },
         save () {
             this.isEditing = false;
-            this.emitValue()
+            this.$emit('saveData',this.valueModel)
         },
         cancel () {
             this.isEditing = false;
