@@ -47,19 +47,19 @@ export default {
             this.$router.push("/products/");
           },
 
-  async remove(givenProduct) {
-    const productId = givenProduct.id;
-   
-    try {
-      await deleteDoc(doc(db, "products", productId));
-      // Delete operation successful 
-      alert("Delete operation successful");
-      this.$router.push("/products/");
-    } catch (error) {
-      // Handle the error if the delete operation fails
-      console.error("Error deleting product:", error);
+    async remove(givenProduct) {
+        const productId = givenProduct.id;
+    
+        try {
+        await deleteDoc(doc(db, "products", productId));
+        // Delete operation successful 
+        alert("Delete operation successful");
+        this.$router.push("/products/");
+        } catch (error) {
+        // Handle the error if the delete operation fails
+        console.error("Error deleting product:", error);
+        }
     }
-  }
 }
 
 }

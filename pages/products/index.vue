@@ -8,7 +8,6 @@
           <div>
           <router-link :to="`/products/${product.id}`">
             {{ product.name }} 
-            
             <v-btn
             class="mx-2" color="info"  >  
             <v-icon dark>mdi-information</v-icon> 
