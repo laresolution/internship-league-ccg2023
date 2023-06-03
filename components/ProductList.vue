@@ -48,7 +48,7 @@
 import vModelObjectMixin from '~/mixins/vModelObjectMixin';
 
 export default {
-    name: 'ProductSection2',
+    name: 'ProductList',
     mixins: [vModelObjectMixin],
     data() {
         return {
@@ -68,6 +68,7 @@ export default {
         save () {
             this.isEditing = false;
             this.emitValue()
+             
         },
         cancel () {
             this.isEditing = false;
