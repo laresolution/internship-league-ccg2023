@@ -99,12 +99,10 @@ export default {
             console.log(this.newMember); 
             return this.newMember; // Return the member information    
         },
-        clear() {
-            console.log(this.newMember);  
+        clear() { 
             this.$emit("cancel")
             this.newMember = generateNewMember();
-            console.log("***");
-            console.log(this.newMember);  
+            
         },
         getMaxDate() {
             const date = new Date();
