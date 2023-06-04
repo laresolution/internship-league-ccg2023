@@ -7,7 +7,7 @@
                 <div class="text-body-1">{{contactForm.name}} </div>  
                 <div class="text-body-1">{{contactForm.email}} </div>
                 <div class="text-body-1">{{contactForm.phoneNumber}}  </div>   
-                 
+                <div class="text-body-1">{{contactForm.availability}}  </div> 
                 <v-btn
                     class="mx-2"
                     fab
@@ -24,9 +24,9 @@
                 <div class="text-body-1" label="ID">{{contactForm.id}} </div>   
                 
                 <v-text-field v-model="valueModel.name">{{contactForm.name}}</v-text-field>
-                <v-text-field v-model="valueModel.email">{{contactForm.price}}</v-text-field> 
-                <v-text-field v-model="valueModel.phoneNumber">{{contactForm.description}}</v-text-field>
-                
+                <v-text-field v-model="valueModel.email">{{contactForm.email}}</v-text-field> 
+                <v-text-field v-model="valueModel.phoneNumber">{{contactForm.phoneNumber}}</v-text-field>
+                <v-text-field v-model="valueModel.availability">{{contactForm.availability}}</v-text-field> 
                 
                 <v-btn
                     class="mx-2"
