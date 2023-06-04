@@ -66,8 +66,9 @@ export default {
     contactformCreated(contactform) { 
       this.formshown = false
       this.addContactForm(contactform)  
-      const id = contactform.id;  alert(contactform.id)
-      console.log(contactform)
+      console.log(contactform); 
+      const id = contactform.id;  
+      console.log(contactform); 
       this.$router.push("/contact/"+id);
     }, 
   },
