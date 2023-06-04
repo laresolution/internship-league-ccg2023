@@ -54,7 +54,7 @@ export default {
         await deleteDoc(doc(db, "products", productId));
         // Delete operation successful 
         alert("Delete operation successful");
-        this.$router.push("/products/");
+        this.$router.push("/");
         } catch (error) {
         // Handle the error if the delete operation fails
         console.error("Error deleting product:", error);
