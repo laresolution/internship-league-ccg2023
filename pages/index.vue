@@ -22,16 +22,18 @@
             </v-img>
         </v-row>
         <v-row no-gutters justify="center" style="height: 5rem; background-color: black;">
-            <v-btn 
-                id="regform"
-                elevation="2"
-                to="#regform"
-                color="amber accent-3"
-                x-large
-                class="title red--text text-center font-weight-bold"
-                >
-                {{ textBtnJoinUs }}
-            </v-btn>
+            <div style="display: flex; justify-content: center;">    
+    <v-btn   
+            elevation="2" 
+            style="background-color: #FFBB01; color:rgb(224, 43, 32); font-size:20px; text-shadow: 0.08em 0.08em 0.08em rgba(0,0,0,0.4); letter-spacing:4px; font-weight:700; padding: 24px 20px;" 
+            @click="affiche"> 
+            {{ display }}
+    </v-btn>
+    </div> 
+    <br />
+    <div v-if="formshown">
+      <AddMember @created="memberCreated" /> 
+    </div>
         </v-row>
         <v-row no-gutters>
             <v-img
@@ -48,15 +50,31 @@
 </template>
 
 <script>
+import AddMember from '~/components/AddMember.vue';
 export default {
     name: 'Home',
+    components: {  AddMember,   },
     data() {
         return {
             headerTitle: 'Internship League',
             altBanner: 'Banner Join Us',
             invitationText: 'Live this collaborative experience by joining the internship league! Join like minded individuals who are as excited as you are to begin practicing their craft. Acquire the experience needed to close the junior gap and get hired by showing your work.',
-            textBtnJoinUs: 'Join now'
+            
+            formshown: false,
+            display: "ADD MEMBER"  
         }
+    },
+    methods: {
+        /* ...mapActions('members', [ 'loadMembers','addMember' ]),   */
+        affiche() {
+          this.formshown = true
+        },
+        memberCreated(member) {
+        this.formshown = false;  
+        const id = member.id;   
+        this.addMember(member);
+        this.$router.push("/members/"+id);  
+      }, 
     }
 }
 </script>
