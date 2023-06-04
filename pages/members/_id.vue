@@ -55,7 +55,7 @@ export default {
             await deleteDoc(doc(db, "members", memberId));
             // Delete operation successful 
             alert("Delete operation successful");
-            this.$router.push("/members/");
+            this.$router.push("/");
             } catch (error) {
             // Handle the error if the delete operation fails
             console.error("Error deleting member:", error);
