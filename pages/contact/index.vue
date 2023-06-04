@@ -1,13 +1,13 @@
 <template>
   <v-container fluid class="pt-16 backG"> 
     <div v-if="formshown"> 
-      <ContactFormList v-for="contactform in contactforms" :key="contactform.id" :value="contactform" v-show="false" /> 
+      <ContactFormList v-for="contactForm in contactForms" :key="contactForm.id" :value="contactForm" v-show="false" /> 
     </div>
     <ul>
-        <li v-for="contactform in contactforms" :key="contactform.id">
+        <li v-for="contactForm in contactForms" :key="contactForm.id">
           <div>
-          <router-link :to="`/contactforms/${contactform.id}`">
-            {{ contactform.name }} 
+          <router-link :to="`/contact/${contactForm.id}`">
+            {{ contactForm.name }} 
             <v-btn
             class="mx-2" color="info"  >  
             <v-icon dark>mdi-information</v-icon> 
@@ -26,7 +26,7 @@
     </div> 
     <br />
     <div v-if="formshown">
-      <AddContactForm @created="contactformCreated" /> 
+      <AddContactForm @created="contactFormCreated" /> 
     </div>
   </v-container>
 </template>
@@ -38,7 +38,7 @@ import AddContactForm from '~/components/AddContactForm.vue'
 import ContactFormList from '~/components/ContactFormList.vue'
     
 export default {
-  name: 'contactforms',
+  name: 'contactForms',
   components: { AddContactForm, ContactFormList   },
   data() {
     return { 
@@ -47,7 +47,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('contactforms', ['contactforms','currentContactForm']),
+    ...mapGetters('contactForms', ['contactForms','currentContactForm']),
     regularComputedProperty () {
             return true
         },
@@ -55,20 +55,19 @@ export default {
         return this.$route.params?.id;
     },    
     givenContactForm () {
-        return this.contactforms[this.givenContactFormId] || {}
+        return this.contactForms[this.givenContactFormId] || {}
     }    
   },
   methods: {
-    ...mapActions('contactforms', ['loadContactForms','addContactForm']),
+    ...mapActions('contactForms', ['loadContactForms','addContactForm']),
     affiche() {
       this.formshown = true
     },
-    contactformCreated(contactform) { 
+    contactFormCreated(contactForm) { 
       this.formshown = false
-      this.addContactForm(contactform)  
-      console.log(contactform); 
-      const id = contactform.id;  
-      console.log(contactform); 
+      this.addContactForm(contactForm)  
+       
+      const id = contactForm.id;  
       this.$router.push("/contact/"+id);
     }, 
   },

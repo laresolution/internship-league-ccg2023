@@ -2,11 +2,11 @@
     <v-container>
         <v-row> 
             <v-col v-show="!isEditing">
-                <div class="text-body-1" label="ID">{{contactform.id}} </div>   
+                <div class="text-body-1" label="ID">{{contactForm.id}} </div>   
                  
-                <div class="text-body-1">{{contactform.name}} </div>  
-                <div class="text-body-1">{{contactform.email}} </div>
-                <div class="text-body-1">{{contactform.phoneNumber}}  </div>   
+                <div class="text-body-1">{{contactForm.name}} </div>  
+                <div class="text-body-1">{{contactForm.email}} </div>
+                <div class="text-body-1">{{contactForm.phoneNumber}}  </div>   
                  
                 <v-btn
                     class="mx-2"
@@ -21,11 +21,11 @@
             </v-col>
             <v-spacer></v-spacer> 
             <v-col v-show="isEditing"> 
-                <div class="text-body-1" label="ID">{{contactform.id}} </div>   
+                <div class="text-body-1" label="ID">{{contactForm.id}} </div>   
                 
-                <v-text-field v-model="valueModel.name">{{contactform.name}}</v-text-field>
-                <v-text-field v-model="valueModel.email">{{contactform.price}}</v-text-field> 
-                <v-text-field v-model="valueModel.phoneNumber">{{contactform.description}}</v-text-field>
+                <v-text-field v-model="valueModel.name">{{contactForm.name}}</v-text-field>
+                <v-text-field v-model="valueModel.email">{{contactForm.price}}</v-text-field> 
+                <v-text-field v-model="valueModel.phoneNumber">{{contactForm.description}}</v-text-field>
                 
                 
                 <v-btn
@@ -57,7 +57,7 @@ export default {
         }
     },
     computed: {
-        contactform() {  
+        contactForm() {  
             return this.value || {};
         }
     },

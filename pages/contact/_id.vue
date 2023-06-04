@@ -1,6 +1,6 @@
 <template>
     <v-container>  
-        <router-link to="../contactforms">Back to list</router-link>
+        <router-link to="../contact">Back to list</router-link>
         <ContactFormList :value="givenContactForm" @saveData="enregistrement"></ContactFormList>  
         <DeleteButton @click="remove(givenContactForm)" ></DeleteButton>   
     </v-container> 
@@ -20,22 +20,22 @@ export default {
     },
     components: {ContactFormList, DeleteButton },
     computed: {
-        ...mapGetters('contactforms',[
-            'contactforms'
+        ...mapGetters('contactForms',[
+            'contactForms'
         ]),
         givenContactFormId() {
             return this.$route.params?.id;
         },
         givenContactForm () {
-            return this.contactforms[this.givenContactFormId] || {}
+            return this.contactForms[this.givenContactFormId] || {}
         }
     },
  methods: {
-    async enregistrement(contactform) {  
-            // ... update contactform code
-            const contactformId = contactform.id; 
+    async enregistrement(contactForm) {  
+            // ... update contactForm code
+            const contactFormId = contactForm.id; 
             try {
-                await updateDoc(doc(db, "contactforms", contactformId), contactform);
+                await updateDoc(doc(db, "contactForms", contactFormId), contactForm);
                 
       // Add more fields to update as needed
                 // update operation successful 
@@ -44,20 +44,20 @@ export default {
                 // Handle the error if the update operation fails
                 console.error("Error updating contactform:", error);
             }
-            this.$router.push("/contactforms/");
+            this.$router.push("/contact/");
           },
 
     async remove(givenContactForm) {
-        const contactformId = givenContactForm.id;
+        const contactFormId = givenContactForm.id;
     
         try {
-        await deleteDoc(doc(db, "contactforms", contactformId));
+        await deleteDoc(doc(db, "contactForms", contactFormId));
         // Delete operation successful 
         alert("Delete operation successful");
-        this.$router.push("/contactforms/");
+        this.$router.push("/contact/");
         } catch (error) {
         // Handle the error if the delete operation fails
-        console.error("Error deleting contactform:", error);
+        console.error("Error deleting contactForm:", error);
         }
     }
 }
