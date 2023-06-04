@@ -75,11 +75,11 @@ export default {
     },
     methods: {
         submit() { 
-            this.$emit("created", this.newMember); 
-            this.newMember= generateNewMember();       
+            this.$emit("created", this.newMember);
+            // return { ...this.newMember }; // Return a copy of newMember object 
+            return this.newMember ;
         },
-        clear() {
-
+        clear() { 
             this.newMember = generateNewMember(); 
         },
 
