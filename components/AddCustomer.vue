@@ -122,8 +122,8 @@
             </v-card-text>
             <v-card-actions>
             <v-spacer></v-spacer>
-            <CancelButton @click="clear"></CancelButton>
             <SaveButton @click="saveCustomer"></SaveButton>
+            <CancelButton @click="clear"></CancelButton> 
             </v-card-actions>
         </v-card>
         </v-dialog>
