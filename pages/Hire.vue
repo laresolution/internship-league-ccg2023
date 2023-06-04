@@ -51,13 +51,13 @@
                 background-size="cover">
             </v-img>
         </v-row>
-        <v-row>
+   <v-row>
             <v-list>
                 <v-list-item v-for="customer in customers" :key="customer.id" v-model="customer.data">
-                    {{ customer }}
+                    {{ customer.id }} 
                 </v-list-item>
             </v-list>
-        </v-row>
+        </v-row>  
     </v-container>
 </template>
 
