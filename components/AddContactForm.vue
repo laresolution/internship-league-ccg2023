@@ -8,23 +8,23 @@
     <v-form>
       <form>
         <v-text-field
-          v-model="newCallback.name"
+          v-model="newContactForm.name"
           label="First and last name"
           required
         >
         </v-text-field>
         <v-text-field
-          v-model="newCallback.email"
+          v-model="newContactForm.email"
           label="E-mail"
           required
         ></v-text-field>
         <v-text-field
-          v-model="newCallback.phoneNumber"
+          v-model="newContactForm.phoneNumber"
           label="Phone Number"
           required
         ></v-text-field>
         <v-select
-          v-model="newCallback.availability"
+          v-model="newContactForm.availability"
           :items="items"
           label="Availability"
           required
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-const generateNewCallback = () => {
+const generateNewContactForm = () => {
   return {
     name: '',
     email: '',
@@ -63,20 +63,16 @@ export default {
         'Both',
       ],
       checkbox: false,
-      newCallback: generateNewCallback(),
+      newContactForm: generateNewContactForm(),
     }
   },
   methods: {
     submit() {
-      this.$emit('created', this.newCallback)
-      this.newCallback = generateNewCallback()
+      this.$emit('created', this.newContactForm)
+      this.newContactForm = generateNewContactForm();
     },
     clear() {
-      this.name = ''
-      this.email = ''
-      this.phoneNumber = ''
-      this.select = null
-      this.checkbox = false
+      this.newContactForm = generateNewContactForm();
     },
   },
 }
