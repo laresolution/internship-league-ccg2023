@@ -45,8 +45,7 @@ export default {
         return {
             formshown: false,
             display: "ADD MEMBER"  
-        }
-        
+        } 
     },
     computed: {
         ...mapGetters('members', [
