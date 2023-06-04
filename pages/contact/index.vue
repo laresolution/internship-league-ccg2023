@@ -1,5 +1,55 @@
 <template>
   <v-container fluid class="pt-16 backG"> 
+
+    <p class="text-center titre display-1">
+            {{ title }}
+        </p> 
+        <h3 class="text-center citation"  style="color: rgb(23,84,78)" >(   Let the experience starts from here ...)</h3><br>
+
+        <div class="row">
+            <div class="col">
+                <v-card class="mx-auto" max-width="344">
+                    <v-img src="./img/joinus.jpg" height="200px" cover></v-img>
+
+                    <v-card-title>
+                        <h3 style="color: rgb(111,233,146);">Join Us</h3>
+                    </v-card-title>
+
+                    <v-card-subtitle>
+                        <h4> internshipleague@laresolution.ca</h4>
+                        <h4> 514-971-2196</h4>
+                    </v-card-subtitle>
+
+
+
+
+                </v-card>
+            </div>
+            <div class="col">
+                <v-card class="mx-auto" max-width="344">
+                    <v-img src="./img/opening-web-616x308px.jpg" height="200px" cover></v-img>
+
+                    <v-card-title>
+                        <h3 style="color: rgb(111,233,146);">Opening Hours</h3>
+                    </v-card-title>
+
+
+                    <v-card-subtitle>
+                        <h4> Monday to Friday</h4>
+                        <h4> 10:00am – 03:00pm</h4>
+                    </v-card-subtitle>
+
+
+
+
+                </v-card>
+            </div>
+        </div>
+        <br>
+
+
+
+
     <div v-if="formshown"> 
       <ContactFormList v-for="contactForm in contactForms" :key="contactForm.id" :value="contactForm" v-show="false" /> 
     </div>
