@@ -1,9 +1,12 @@
 <template>
     <v-container>
-        <v-row> 
+        <v-row>
+            <v-col>
+                <v-img :src="member.imgSrc" max-height="240" max-width="240" />
+            </v-col> 
             <v-col v-show="!isEditing">
                 <div class="text-body-1" label="ID">{{member.id}} </div>   
-                <div class="text-body-1">{{member.imgUrl}} </div>   
+                 
                 <div class="text-body-1">{{member.name}} </div>  
                 <div class="text-body-1">{{member.email}} </div>
                 <div class="text-body-1">{{member.phone}}  </div>   
@@ -27,7 +30,7 @@
             <v-spacer></v-spacer> 
             <v-col v-show="isEditing"> 
                 <div class="text-body-1" label="ID">{{member.id}} </div>   
-                <v-text-field v-model="valueModel.imgUrl">{{member.imgUrl}}</v-text-field>  
+                <v-text-field v-model="valueModel.imgSrc">{{member.imgSrc}}</v-text-field>
                 <v-text-field v-model="valueModel.name">{{member.name}}</v-text-field>
                 <v-text-field v-model="valueModel.email">{{member.email}}</v-text-field> 
                 <v-text-field v-model="valueModel.phone">{{member.phone}}</v-text-field>
