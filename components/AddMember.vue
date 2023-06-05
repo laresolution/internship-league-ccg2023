@@ -38,7 +38,7 @@
  
 const generateNewMember = () => {
     return {
-        
+        imgUrl:'/img/developer.jpg',
         name: '',
         email: '',
         phone: '',
